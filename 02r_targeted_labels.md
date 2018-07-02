@@ -1,0 +1,3 @@
+Nice work @{{ user.username }}! You successfully added labels to your project. This means that contributors and you as the repository owner can quickly identify what an issue or pull request is trying to accomplish. Lables can also be used to sort the issues and pull requests in your project making it easier to identify what task or tasks should be completed next. 
+
+I'm going to close this issue out and open a new issue with your next steps. Little by little, your repository is becoming a great place for contributors to find a new home :smile:.
