@@ -1,50 +1,38 @@
-# Protected Branches and CODEOWNERS
+# Community Starter Kit
 
-This README contains the course flow for the "Protected Branches and CODEOWNERS" course.
+This file contains the course flow for the "Protected Branches and CODEOWNERS" course.
 
 ### User Registration
 - Before registration, a description of the class and the recommended prerequistes will be available.
-- On registration, the app will create a repository for the user based on [this template](https://github.com/githubtraining/protected-branches-codeowners.git).
-- Once the repository is created, the app will [create an issue with the first set of instructions](/responses/01_introduction-issue.md).  
-- Repository needs to have `@githubstudent` as a collaborator
+- On registration, the app will create a repository for the user based on [this template](https://github.com/githubtraining/community-starter-kit).
+- Once the repository is created, the app will [create an issue with the first set of instructions](/responses/00_welcome.md).  
 
-Changes to make to outline
-
-1. App sets up repo, opens a PR with a CODEOWNERS file requesting the user’s review
-2. App asks user to turn on branch protections
-3. User turns on branch protections, sees their effect on the PR
-4. User submits a review approval
-5. App merges
-6. App opens an issue asking the user to modify the CODEOWNERS by adding @github-learning-lab
-7. User modifies CODEOWNERS, opens PR
-8. App merges the PR.
-9. User modifies README.
-10. GitHub requests a review from @github-learning-lab
-11. App submits approval on behalf of @github-learning-lab
-12. User merges PR.
-
-## Activity 1: Enable Protected Branches
+## Activity 1: Add topics to repository
 
 | Student action | App response |
 | -------------- | ------------ |
-| background step | App sets up repo, opens a PR with a [CODEOWNERS file](assets/CODEOWNERS) requesting the user's review. App responds on PR with directions for enabling protected [branches](/responses/02_enable_protection.md) |
-| User enables protected branches based on instructions | Enable protected branches: App responds with text from [this](/responses/03_enabled_protection.md) |
-| User approves PR | App merges PR, app creates new issue based on [this](/responses/04_reviews_by_codeowners.md)
+| nothing | App creates issue using [this](responses/01_add_topics.md) |
+| student adds at least one label to the repository | on success: app uses [this](responses/01r_add_topics.md); on fail: app uses [this](responses/01e_add_topics.md) |
 
 
-## Activity 2: Adding CODEOWNERS
-
-| Student action | App response |
-| -------------- | ------------ |
-| User creates a branch, modifies a file that will kick off a review request using the CODEOWNERS file, creates PR | App responds with this [review](/responses/05_peer_review.md)
-| background step | App approves the PR | 
-| User merges PR | App responds with [ending](/responses/06_graceful_exit.md) 
-
-## Activity 3: Using CODEOWNERS
+## Activity 2: Add labels to repository
 
 | Student action | App response |
 | -------------- | ------------ |
-| User creates a branch, modifies a file that will kick off a review request using the CODEOWNERS file, creates PR | insert |
-| background step | insert | 
-| User merges PR | insert |
+| successfully completed activity 1 | app creates new issue using [this](02_targeted_labels.md) |
+| following instructions from [this](02_targeted_labels.md), student adds labels to the repository  | on fail app uses [this](responses/02e_targeted_labels.md)  ; on success app uses [this](responses/02e_targeted_labels.md) |
 
+## Activity 3: Add repository description
+
+| Student action | App response |
+| -------------- | ------------ |
+| successfully completed activity 2 | app creates issue using [this](responses/04_repository_description.md) |
+| student modifies the repository description | on fail app uses [this](responses/04e_repository_description.md) ; on success app uses [this](responses/04r_repository_description.md) |
+
+## Activity 4: Open Ended Adventure
+
+| Student action | App response |
+| -------------- | ------------ |
+| placeholder | placeholder |
+| placeholder | placeholder |
+| placeholder | placeholder |
