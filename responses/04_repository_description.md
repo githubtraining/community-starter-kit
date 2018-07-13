@@ -2,7 +2,7 @@
 
 To make your project easy to find, there are some files and settings that we can modify. An easy way to make your project discoverable is to update the repository description to better identify what your repository is for.
 
-## :keyboard: Activity: Modify the Repository Description
+#### :keyboard: Activity: Modify the Repository Description
 
 1. Go to the **Code** tab of your repository.
 TODO: Have @hectorsector show me how to link to the student's repo
