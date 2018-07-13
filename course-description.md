@@ -5,7 +5,7 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 ### User Registration
 - Before registration, a description of the class and the recommended prerequistes will be available.
 - On registration, the app will create a repository for the user based on [this template](https://github.com/githubtraining/community-starter-kit).
-- Once the repository is created, the app will [create an issue with the first set of instructions](/responses/00_welcome.md).  
+- Once the repository is created, the app will [create an issue with the first set of instructions](responses/01_add_topics.md).  
 
 ## Activity 1: Add topics to repository
 
@@ -33,6 +33,5 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 
 | Student action | App response |
 | -------------- | ------------ |
-| placeholder | placeholder |
-| placeholder | placeholder |
-| placeholder | placeholder |
+| success on activity 3 | app opens issue with [this](responses/05_other_repository_files.md)  |
+| student closes the issue | app opens issues with the following content (if the file doen't exist, use the 'new', if the file does exist use the 'update'): [code of conduct](responses/08-collabs-code-new.md), [contributing guide](responses/08-collabs-contributing-new.md), [license](responses/08-license-new.md), [readme](responses/08-collabs-readme-new.md), and [templates](responses/08-collabs-templates-new.md), app also opens [closing](responses/09_graceful_exit.md) |
