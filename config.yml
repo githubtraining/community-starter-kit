@@ -1,0 +1,54 @@
+title: Community Starter Kit
+tagline: ___
+description: ___
+tags:
+  - GitHub
+before:
+  - type: createIssue
+    title: Adding Topics
+    body: 01_add_topics.md
+steps:
+  - title: Add a topic
+    description: ___
+    event: ''
+    link: https://github.com/{{ user.usename }}/{{ course.template.name }}
+    actions:
+      - type: createIssue
+        title: Targeted labels
+        body: 02_targeted_labels.md
+
+  - title: Add targeted labels
+    description: ___
+    event: label.created
+    link: https://github.com/{{ user.usename }}/{{ course.template.name }}/labels
+    actions:
+      - type: respond
+        issue: Targeted labels
+        with: 02r_targeted_labels.md
+      - type: gate
+        left: '%payload.repository.description%'
+        operator: '!=='
+        right: null
+        required: false
+        else:
+          type: createIssue
+          title: Add a repository description
+          body: 05_repository_description.md
+      - type: gate
+        left: '%payload.repository.description%'
+        operator: '==='
+        right: null
+        required: false
+        else:
+          type: createIssue
+          title: Update the repository description
+          body: 08_collabs-description-update.md
+
+  - title: Open ended adventure
+    description: ___
+    link: https://github.com/{{ user.usename }}/{{ course.template.name }}
+    event: CANNOT LISTEN FOR REPO DESCRIPTION
+    actions:
+      - type: createIssue
+        title: Code of Conduct
+        
