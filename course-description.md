@@ -11,8 +11,7 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 
 | Student action | App response |
 | -------------- | ------------ |
-| nothing | App creates issue using [this](responses/01_add_topics.md) |
-| student adds at least one label to the repository | on success: app uses [this](responses/01r_add_topics.md); on fail: app uses [this](responses/01e_add_topics.md) |
+| student adds at least one topic to the repository | on success: app uses [this](responses/01r_add_topics.md); on fail: app uses [this](responses/01e_add_topics.md) |
 
 
 ## Activity 2: Add labels to repository
@@ -26,7 +25,7 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 
 | Student action | App response |
 | -------------- | ------------ |
-| successfully completed activity 2 | app creates issue using [this](responses/04_repository_description.md) if no repo description exists, if a repo description exists use [this](responses/08-description-update.md) |
+| successfully completed activity 2 | app creates issue using [this](responses/04_repository_description.md) if no repo description exists, if a repo description exists use [this](responses/08_collabs-description-update.md) |
 | student modifies the repository description | on fail app uses [this](responses/04e_repository_description.md) ; on success app uses [this](responses/04r_repository_description.md) |
 
 ## Activity 4: Open Ended Adventure
