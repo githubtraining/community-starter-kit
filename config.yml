@@ -1,6 +1,6 @@
 title: Community Starter Kit
 tagline: Upgrade your repository to make it welcoming to the Open Source community.
-description: ___
+description: This course prepares your repository for the Open Source community to find and contribute to your project.
 tags:
   - GitHub
   - Open Source
@@ -10,7 +10,7 @@ before:
     body: 01_add_topics.md
 steps:
   - title: Adding Topics
-    description: ___
+    description: Apply terms to your repository to make it easier for people to find your work
     link: https://github.com/{{ user.username }}/{{ course.template.name }}
     event: issues.closed
     actions:
@@ -23,7 +23,7 @@ steps:
         data:
           issueURL: '%actions.new_issue.data.html_url%'
   - title: Targeted Labels
-    description: ___
+    description: Make it easier to identify the purpose of issues and pull requests in your repository
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
     event: label.created
     actions:
@@ -38,7 +38,7 @@ steps:
           issueURL: '%actions.new_issue.data.html_url%'
 
   - title: Repository Description
-    description: ___
+    description: Identify what your repository is trying to accomplish with a repository description
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
     event: issues.closed
     actions:
@@ -63,8 +63,8 @@ steps:
         data:
           issueURL: '%actions.new_issue.data.html_url%'
 
-  - title: END_________
-    description: ___
+  - title: Other ways to improve your repository
+    description: You've made it easier for people to find your repository, now provide helpful aids to guide them on how to contribute
     event: issues.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
     actions:
