@@ -9,13 +9,13 @@ Providing the baseline expectations for a contribution to your project makes it 
 ### :keyboard: Activity: Adding Contributing guidelines
 
 {% if private %}
-1. Access the [**Code**](https://github.com/{{ user.username }}/github-move/) tab of your project
+1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project
 1. Click the **Create new file** button
 1. Name your new file `CONTRIBUTING.md`
 1. Modify your new file with contributing guidelines for your project, for ideas on what should be included in a contributing guidelines file, read [this stellar documentation](https://help.github.com/articles/setting-guidelines-for-repository-contributors/)
 1. After editing your file click the **Commit new file** to commit your `CONTRIBUTING.md` file directly to your `master` branch.
 {% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/github-move/community)
+1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
 1. Click the **Add** button on the Contributing row
 1. Modify your new file with contributing guidelines for your project, for ideas on what should be included in a contributing guidelines file, read [this stellar documentation](https://help.github.com/articles/setting-guidelines-for-repository-contributors/)
 1. After editing the `CONTRIBUTING.md` file, scroll down and click the **Commit new file** button.

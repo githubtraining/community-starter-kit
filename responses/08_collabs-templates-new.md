@@ -14,7 +14,7 @@ Issue and Pull Request templates use the following naming conventions:
      - Issue templates are named: `ISSUE_TEMPLATE.md`
      - Pull Request templates are named: `PULL_REQUEST_TEMPLATE.md`
 
-1. Access the [**Code**](https://github.com/{{ user.username }}/github-move/) tab of your project.
+1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project.
 1. Click the **Create new file** button
 1. Name your new file based on the template you are trying to create
 1. Modify your template file to include the information you want to automatically populate when a user creates an issue or a pull request, for examples of what to include read [this](https://help.github.com/articles/creating-an-issue-template-for-your-repository/)
@@ -23,7 +23,7 @@ Issue and Pull Request templates use the following naming conventions:
     > This is committing your template file directly to `master`.
 
 {% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/github-move/community)
+1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
 1. On the Issue or pull request template row, select the **Add** drop down and select **Issue template** or **Pull request template**
 1. Edit the new template file to identify how you want issues or pull requests submitted to your project, for suggestions on what should be included in a template file, read [this](https://help.github.com/articles/creating-an-issue-template-for-your-repository/)
 1. Afer editing the template file, scroll down and click the **Commit new file** button
@@ -36,12 +36,12 @@ Issue and Pull Request templates use the following naming conventions:
 
   ### Add another template file
 
-  After using the [Community profile pane](https://github.com/{{ user.username }}/github-move/community) to create a template file, the option to create the other template file isn't displayed. To create the other template file, perform the following steps:
+  After using the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community) to create a template file, the option to create the other template file isn't displayed. To create the other template file, perform the following steps:
 
      - Issue templates are named: `ISSUE_TEMPLATE.md`
      - Pull Request templates are named: `PULL_REQUEST_TEMPLATE.md`
 
-  1. On the [Code](https://github.com/{{ user.username }}/github-move) tab of your project, click the **Create new file** button
+  1. On the [Code](https://github.com/{{ user.username }}/community-starter-kit) tab of your project, click the **Create new file** button
   1. Enter the name of the template file your project is missing
   1. Modify your template file to include the information you want to automatically populate when a user creates an issue or a pull request, for examples of what to include read [this](https://help.github.com/articles/creating-an-issue-template-for-your-repository/)
   1. Once you have modified your file, click the **Commit new file** button

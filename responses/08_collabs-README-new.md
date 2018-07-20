@@ -15,7 +15,7 @@ A `README` is often the first item a visitor will see when visiting your reposit
 ### :keyboard: Activity: Adding a README
 
 {% if private %}
-1. Access the [**Code**](https://github.com/{{ user.username }}/github-move/) tab of your project.
+1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project.
 1. Below the list of files in your project is a notification reading: "Add a README with an overview of your project.", click the **Add a README** button found within that notification
 1. Edit the new README file to describe your projects, using the bullet points listed above :point_up:
 1. After editing the README file, scroll down and click the **Commit new file** button.
@@ -23,7 +23,7 @@ A `README` is often the first item a visitor will see when visiting your reposit
     > This is committing your README file directly to `master`. Normally, you would create a pull request when making changes to your projects, but README files are very important on GitHub.
 
 {% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/github-move/community)
+1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
 1. Click the **Add** button on the README row.
 1. Edit the new README file to describe your projects, using the bullet points listed above :point_up:
 1. After editing the README file, scroll down and click the **Commit new file** button.

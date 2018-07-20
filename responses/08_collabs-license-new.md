@@ -10,7 +10,7 @@ Your repository is public but there's no License. Licenses are vital in public r
 1. Read [this documentation](https://help.github.com/articles/adding-a-license-to-a-repository/) about having a License
 1. Add a License to this project using the GitHub Flow
 {% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/github-move/community)
+1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
 1. Click the **Add** button on the License row.
 1. Select a license from the left side of the screen and review the license you selected.
 1. Add information to the displayed fields and click the **Review and submit** button.

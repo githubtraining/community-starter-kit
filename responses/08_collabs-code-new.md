@@ -9,7 +9,7 @@ Having a Code of Conduct is really important, {% if private %}even in private re
 1. Add a Code of Conduct to this project using the GitHub Flow
 1. Close this issue when you're done
 {% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/github-move/community)
+1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
 1. Click the **Add** button on the Code of Conduct row.
 1. Select a Code of Conduct from the left side of the screen and review the Code of Conduct you selected.
 1. Add information to the displayed fields then click the **Review and submit** button.
