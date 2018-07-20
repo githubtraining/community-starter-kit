@@ -2,7 +2,7 @@ Your GitHub project can be assigned topics to make it easier for people to find 
 
 For instance, if we look at the topics assigned to the `first-timer-bot` repository by `hoodiehq` we can identify things like: community, first-timers-only, bot, probot-app, and probot. 
 
-![first timers topics](/artifacts/first_timers_bot_topics.png)
+![first timers topics](https://lab.github.com/public/images/first_timers_bot_topics.png)
 
 That means that people looking for any of those keywords are more apt to find their repository. 
 
