@@ -6,7 +6,7 @@ tags:
   - Open Source
 template:
   name: community-starter-kit
-  url: 
+  url: https://github.com/githubtraining/community-starter-kit-template
 before:
   - type: createIssue
     title: Adding Topics
