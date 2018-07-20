@@ -70,19 +70,29 @@ steps:
     actions:
       - type: createIssue
         title: Code of Conduct
+        action_id: code_of_conduct
         body: 08_collabs-code-new.md
       - type: createIssue
         title: Contributing Guide
+        action_id: contributing_guide
         body: 08_collabs-contributing-new.md
       - type: createIssue
         title: License
+        action_id: license
         body: 08_collabs-license-new.md
       - type: createIssue
         title: README
+        action_id: readme
         body: 08_collabs-README-new.md
       - type: createIssue
         title: Issue and Pull Request Templates
+        action_id: templates
         body: 08_collabs-templates-new.md
-      - type: createIssue
-        title: In Closing...
-        body: 09_advertising_your_repo.md
+      - type: respond
+        with: 09_advertising_your_repo.md
+        data:
+          code_of_conduct: '%actions.code_of_conduct.data.html_url%'
+          contributing_guide: '%actions.contributing_guide.data.html_url%'
+          license: '%actions.license.data.html_url%'
+          readme: '%actions.readme.data.html_url%'
+          templates: '%actions.templates.data.html_url%'
