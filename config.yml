@@ -1,0 +1,98 @@
+title: Community Starter Kit
+tagline: Upgrade your repository to make it welcoming to the Open Source community.
+description: This course prepares your repository for the Open Source community to find and contribute to your project.
+tags:
+  - GitHub
+  - Open Source
+before:
+  - type: createIssue
+    title: Adding Topics
+    body: 01_add_topics.md
+steps:
+  - title: Adding Topics
+    description: Apply terms to your repository to make it easier for people to find your work
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}
+    event: issues.closed
+    actions:
+      - type: createIssue
+        action_id: new_issue  
+        title: Targeted Labels
+        body: 02_targeted_labels.md
+      - type: respond
+        with: next.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+  - title: Targeted Labels
+    description: Make it easier to identify the purpose of issues and pull requests in your repository
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
+    event: label.created
+    actions:
+      - type: createIssue
+        action_id: new_issue
+        title: Repository Description
+        body: 04_repository_description.md
+      - type: respond
+        issue: Targeted Labels
+        with: 02r_targeted_labels.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+
+  - title: Repository Description
+    description: Identify what your repository is trying to accomplish with a repository description
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+    event: issues.closed
+    actions:
+      - type: gate
+        left: '%payload.repository.description%'
+        else:
+          - type: octokit
+            method: 'issues.edit'
+            state: open
+            owner: '%payload.repository.owner.login%'
+            name: '%payload.repository.name%'
+            number: '%payload.issues.number%'
+          - type: respond
+            with: 04e_repository_description.md
+      - type: createIssue
+        action_id: new_issue
+        title: Repository Description
+        body: 05_other_repository_files.md
+      - type: respond
+        issue: Targeted Labels
+        with: 04r_repository_description.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+
+  - title: Other ways to improve your repository
+    description: You've made it easier for people to find your repository, now provide helpful aids to guide them on how to contribute
+    event: issues.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+    actions:
+      - type: createIssue
+        title: Code of Conduct
+        action_id: code_of_conduct
+        body: 08_collabs-code-new.md
+      - type: createIssue
+        title: Contributing Guide
+        action_id: contributing_guide
+        body: 08_collabs-contributing-new.md
+      - type: createIssue
+        title: License
+        action_id: license
+        body: 08_collabs-license-new.md
+      - type: createIssue
+        title: README
+        action_id: readme
+        body: 08_collabs-README-new.md
+      - type: createIssue
+        title: Issue and Pull Request Templates
+        action_id: templates
+        body: 08_collabs-templates-new.md
+      - type: respond
+        with: 09_advertising_your_repo.md
+        data:
+          code_of_conduct: '%actions.code_of_conduct.data.html_url%'
+          contributing_guide: '%actions.contributing_guide.data.html_url%'
+          license: '%actions.license.data.html_url%'
+          readme: '%actions.readme.data.html_url%'
+          templates: '%actions.templates.data.html_url%'
