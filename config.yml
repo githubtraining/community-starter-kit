@@ -4,6 +4,9 @@ description: This course prepares your repository for the Open Source community 
 tags:
   - GitHub
   - Open Source
+template:
+  name: community-starter-kit
+  url: https://github.com/githubtraining/community-starter-kit-template
 before:
   - type: createIssue
     title: Adding Topics
