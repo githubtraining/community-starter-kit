@@ -16,11 +16,11 @@ During this course you successfully:
 
 I've opened some issues that will take your repository to the next level by providing helpful information for collaborators. 
 
-- [Name of issue](issue_url)
-- [Name of issue](issue_url)
-- [Name of issue](issue_url)
-- [Name of issue](issue_url)
-- [Name of issue](issue_url)
+- [Code of Conduct]({{ code_of_conduct }})
+- [Contributing Guide]({{ contributing_guide }})
+- [License]({{ license }})
+- [README]({{ readme }})
+- [Issue and Pull Request Templates]({{ templates }})
 
 After implementing the different tools to make your project more friendly to the open source community, it is time to throw down the welcome mat. In this section, we will look at ways to promote your project.
 
