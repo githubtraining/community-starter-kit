@@ -1,5 +1,3 @@
-# Adding Topics
-
 Your GitHub project can be assigned topics to make it easier for people to find it. 
 
 For instance, if we look at the topics assigned to the `first-timer-bot` repository by `hoodiehq` we can identify things like: community, first-timers-only, bot, probot-app, and probot. 
