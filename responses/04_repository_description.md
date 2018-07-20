@@ -17,3 +17,6 @@ To make your project easy to find, there are some files and settings that we can
 1. (Optional) If you have a website related to your project you can add it in the **Website** field.
 1. Click the **Save** button.
 {% endif %}
+
+
+Once you have added a description to your repository, close this issue and I will open a new issue.

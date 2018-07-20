@@ -13,3 +13,5 @@ As a first step to making your GitHub repository easier to find for potential co
 1. On the **Code** tab, click the **Add topics** option.
 1. In the **Topics** field, enter your first topic. GitHub might have some **Suggested** topics for your repository.
 1. After entering a topic (or topics), click **Done**.
+
+Once you have finished adding at least one topic to your repository, you can close this issue. I'll open a new issue providing the next steps.
