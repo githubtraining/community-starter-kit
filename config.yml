@@ -1,0 +1,88 @@
+title: ___
+tagline: ___
+description: ___
+tags:
+  - GitHub
+  - Open Source
+before:
+  - type: createIssue
+    title: Adding Topics
+    body: 01_add_topics.md
+steps:
+  - title: Adding Topics
+    description: ___
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}
+    event: issues.closed
+    actions:
+      - type: createIssue
+        action_id: new_issue  
+        title: Targeted Labels
+        body: 02_targeted_labels.md
+      - type: respond
+        with: next.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+  - title: Targeted Labels
+    description: ___
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
+    event: label.created
+    actions:
+      - type: createIssue
+        action_id: new_issue
+        title: Repository Description
+        body: 04_repository_description.md
+      - type: respond
+        issue: Targeted Labels
+        with: 02r_targeted_labels.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+
+  - title: Repository Description
+    description: ___
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+    event: issues.closed
+    actions:
+      - type: gate
+        left: '%payload.repository.description%'
+        else:
+          - type: octokit
+            method: 'issues.edit'
+            state: open
+            owner: '%payload.repository.owner.login%'
+            name: '%payload.repository.name%'
+            number: '%payload.issues.number%'
+          - type: respond
+            with: 04e_repository_description.md
+      - type: createIssue
+        action_id: new_issue
+        title: Repository Description
+        body: 05_other_repository_files.md
+      - type: respond
+        issue: Targeted Labels
+        with: 04r_repository_description.md
+        data:
+          issueURL: '%actions.new_issue.data.html_url%'
+
+  - title: END_________
+    description: ___
+    event: issues.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+    actions:
+      - type: createIssue
+        title: Code of Conduct
+        body: 08_collabs-code-new.md
+      - type: createIssue
+        title: Contributing Guide
+        body: 08_collabs-contributing-new.md
+      - type: createIssue
+        title: License
+        body: 08_collabs-license-new.md
+      - type: createIssue
+        title: README
+        body: 08_collabs-README-new.md
+      - type: createIssue
+        title: Issue and Pull Request Templates
+        body: 08_collabs-templates-new.md
+      - type: createIssue
+        title: In Closing...
+        body: 09_advertising_your_repo.md
