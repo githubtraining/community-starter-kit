@@ -32,4 +32,4 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 
 | Student action | App response |
 | -------------- | ------------ |
-| student closes the issue | app opens issues with the following content: [code of conduct](responses/08-collabs-code-new.md), [contributing guide](responses/08-collabs-contributing-new.md), [license](responses/08-license-new.md), [readme](responses/08-collabs-readme-new.md), and [templates](responses/08-collabs-templates-new.md), app also opens [closing](responses/09_advertising_your_repo.md) |
+| bg | app responds on the new issue with: [closing](responses/09_advertising_your_repo.md) and opens new issues with: [code of conduct](responses/08-collabs-code-new.md), [contributing guide](responses/08-collabs-contributing-new.md), [license](responses/08-license-new.md), [readme](responses/08-collabs-readme-new.md), and [templates](responses/08-collabs-templates-new.md) |
