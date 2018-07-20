@@ -11,9 +11,7 @@ This file contains the course flow for the "Protected Branches and CODEOWNERS" c
 
 | Student action | App response |
 | -------------- | ------------ |
-| nothing | App creates issue using [this](responses/01_add_topics.md) |
 | student adds at least one label to the repository | on success: app uses [this](responses/01r_add_topics.md); on fail: app uses [this](responses/01e_add_topics.md) |
-
 
 ## Activity 2: Add labels to repository
 
