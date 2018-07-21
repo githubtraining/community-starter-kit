@@ -9,30 +9,30 @@ template:
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
   - type: createIssue
-    title: Adding Topics
+    title: Adding topics
     body: 01_add_topics.md
 steps:
-  - title: Adding Topics
+  - title: Adding topics
     description: Apply terms to your repository to make it easier for people to find your work
     link: https://github.com/{{ user.username }}/{{ course.template.name }}
     event: issues.closed
     actions:
       - type: createIssue
         action_id: new_issue  
-        title: Targeted Labels
+        title: Targeted labels
         body: 02_targeted_labels.md
       - type: respond
         with: next.md
         data:
           issueURL: '%actions.new_issue.data.html_url%'
-  - title: Targeted Labels
+  - title: Targeted labels
     description: Make it easier to identify the purpose of issues and pull requests in your repository
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
     event: label.created
     actions:
       - type: createIssue
         action_id: new_issue
-        title: Repository Description
+        title: Repository description
         body: 04_repository_description.md
       - type: respond
         issue: Targeted Labels
@@ -40,7 +40,7 @@ steps:
         data:
           issueURL: '%actions.new_issue.data.html_url%'
 
-  - title: Repository Description
+  - title: Repository description
     description: Identify what your repository is trying to accomplish with a repository description
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
     event: issues.closed
@@ -58,7 +58,7 @@ steps:
             with: 04e_repository_description.md
       - type: createIssue
         action_id: new_issue
-        title: Repository Description
+        title: Other repository files
         body: 05_other_repository_files.md
       - type: respond
         issue: Targeted Labels

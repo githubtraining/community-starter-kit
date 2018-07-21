@@ -15,3 +15,8 @@ As a first step to making your GitHub repository easier to find for potential co
 1. After entering a topic (or topics), click **Done**.
 
 Once you have finished adding at least one topic to your repository, you can close this issue. I'll open a new issue providing the next steps.
+
+<hr>
+<h3 align="center">Watch below for my response</h3>
+
+> :robot: Once you push your project to GitHub, I'll provide the next steps in your journey.

@@ -18,5 +18,14 @@ To make your project easy to find, there are some files and settings that we can
 1. Click the **Save** button.
 {% endif %}
 
+### :keyboard: Using labels
 
-Once you have added a description to your repository, close this issue and I will open a new issue.
+Once you have added a description to your repository, perform the following:
+
+1. Select the **gear** icon next to **Labels** on the right side of the screen
+1. Select the `done` label you recently created
+
+<hr>
+<h3 align="center">Watch below for my response</h3>
+
+> :robot: Once you push your project to GitHub, I'll provide the next steps in your journey.

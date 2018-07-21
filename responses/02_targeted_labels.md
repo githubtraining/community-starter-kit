@@ -18,5 +18,10 @@ Labels can be customized with a unique name, a description to identify what the 
 
 1. On the **Issues** or **Pull requests** tab, click **Labels**
 1. Click **New label**
-1. Enter a **Label name**, **Description**, select a **Color**
+1. Enter `done` in the **Label name** field, feel free to add a **Description** or select a new **Color**
 1. Click **Create label**
+
+<hr>
+<h3 align="center">Watch below for my response</h3>
+
+> :robot: Once you push your project to GitHub, I'll provide the next steps in your journey.
