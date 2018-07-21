@@ -1,6 +1,6 @@
 title: Community Starter Kit
-tagline: Upgrade your repository to make it welcoming to the Open Source community.
-description: This course prepares your repository for the Open Source community to find and contribute to your project.
+tagline: Create a welcoming open source project
+description: There are millions of projects on GitHub, all competing for attention from the millions of open source contributors available to help. Learn the informal standards the community has adopted to make it easier to find and contribute to projects.
 tags:
   - GitHub
   - Open Source
@@ -18,7 +18,7 @@ steps:
     event: issues.closed
     actions:
       - type: createIssue
-        action_id: new_issue  
+        action_id: new_issue
         title: Targeted labels
         body: 02_targeted_labels.md
       - type: respond

@@ -1,11 +1,12 @@
-# Your GitHub Learning Lab Repository for Community Starter Kit
+The open source community is full of the most passionate and talented people in the world. We know, because we work with them every day. Learn how to help the community find and contribute to your project.
 
-Welcome to your repository for your GitHub Learning Lab course. This repository will be used during the different activities that I will be guiding you through to learn about making your project friendlier for collaboration.
+There are millions of projects on GitHub, all competing for attention from the millions of open source contributors available to help. In this course, you will learn about the informal standards the community has adopted to make it easier to find and contribute to projects.
 
-Oh! I haven't introduced myself...
+In this course, you'll learn:
 
-I'm the GitHub Learning Lab bot and I'm here to help guide you in your journey to learn and master the various topics covered in this course. I will be using Issue and Pull Request comments to communicate with you. In fact, I already added a pull request for you to check out.
+- How to add metadata and help potential contributors find your project
+- The standard files contributors will look for and what they should contain
+- Tips for building a healthy, welcoming community
+- Other ways you can make your project easy to use
 
-![issue tab](https://lab.github.com/public/images/issue_tab.png)
-
-I'll meet you over there, can't wait to get started!
+This course has a dedicated message board on the [GitHub Community]({{ communityBoard }}) website. If you want to discuss this course with GitHub Trainers or other participants create a post over there. The message board can also be used to troubleshoot any issue you encounter while taking this course.
