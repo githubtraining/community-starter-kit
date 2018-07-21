@@ -14,7 +14,7 @@ before:
 steps:
   - title: Adding topics
     description: Apply terms to your repository to make it easier for people to find your work
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
     event: issues.closed
     actions:
       - type: createIssue
@@ -25,35 +25,42 @@ steps:
         with: next.md
         data:
           issueURL: '%actions.new_issue.data.html_url%'
+
   - title: Targeted labels
     description: Make it easier to identify the purpose of issues and pull requests in your repository
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
     event: label.created
     actions:
+      - type: gate
+        left: '%payload.label.name%'
+        operator: test
+        right: /done/i
       - type: createIssue
         action_id: new_issue
         title: Repository description
         body: 04_repository_description.md
+        data:
+          private: '%payload.repository.private%'
       - type: respond
-        issue: Targeted Labels
+        issue: Targeted labels
         with: 02r_targeted_labels.md
         data:
           issueURL: '%actions.new_issue.data.html_url%'
+      - type: closeIssue
+        issue: Targeted labels
 
   - title: Repository description
     description: Identify what your repository is trying to accomplish with a repository description
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
-    event: issues.closed
+    event: issues.labeled
     actions:
+      - type: gate
+        left: '%payload.label.name%'
+        operator: test
+        right: /done/i
       - type: gate
         left: '%payload.repository.description%'
         else:
-          - type: octokit
-            method: 'issues.edit'
-            state: open
-            owner: '%payload.repository.owner.login%'
-            name: '%payload.repository.name%'
-            number: '%payload.issues.number%'
           - type: respond
             with: 04e_repository_description.md
       - type: createIssue
@@ -61,7 +68,6 @@ steps:
         title: Other repository files
         body: 05_other_repository_files.md
       - type: respond
-        issue: Targeted Labels
         with: 04r_repository_description.md
         data:
           issueURL: '%actions.new_issue.data.html_url%'
