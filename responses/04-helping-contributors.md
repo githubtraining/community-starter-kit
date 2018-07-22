@@ -1,7 +1,7 @@
 ## Understanding contributors
 
-the on-ramp for a contributor typically involves bugs --> feature recommendations --> PRs
-this may vary for more experienced contributors
+XXXXXXXXXX the on-ramp for a contributor typically involves bugs --> feature recommendations --> PRs
+this may vary for more experienced contributors XXXXXXXXXX
 
 ## Step 4: Adding issue templates
 
