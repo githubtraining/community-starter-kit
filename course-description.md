@@ -43,7 +43,7 @@ This file contains the course flow for the "Community Starter Kit" course.
 
 | Student action | App response |
 | -------------- | ------------ |
-| user edits CONTRIBUTING.md file | app looks for placeholder text `LABEL PLACEHOLDER`. If present, comments on PR with `responses/05a-contributing-labels.md` and waits for another edit |
+| user edits CONTRIBUTING.md file | app looks for placeholder text `DESCRIPTION PLACEHOLDER`. If present, comments on PR with `responses/05a-contributing-labels.md` and waits for another edit |
 |  | If placeholder text is not present, comment on same PR with `responses/06-add-labels.md` and mark step 5 complete |
 
 ## Step 6: Add labels
