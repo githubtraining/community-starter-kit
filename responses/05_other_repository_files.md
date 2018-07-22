@@ -1,1 +1,0 @@
-Now that you have modified your repository to make it easier for future collaborators to find your repository, it is time to create files that inform collaborators on how to contribute to your project. Once you close this issue, I will open new issues with instructions on how to modify your repository to make it sparkle :sparkle:.
