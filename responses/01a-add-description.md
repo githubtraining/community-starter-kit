@@ -1,10 +1,10 @@
 ## Step 1: Add a Repository Description
 
-First, we are going to focus on helping others understand Mona's project. After all, people are most likely to contribute to projects they use - so no users === no contributors.
+First, let's focus on helping others understand Mona's project. After all, people are most likely to contribute to projects they use, so `no users === no contributors`.
 
-We want users to understand the project at a glance, so we will start by adding a description and creating the README.
+You want users to understand the project at a glance, so start by adding a description and creating the README.
 
-Mona is working on a first draft of the README, so can you help by adding a description to the repository? You can find the instructions below.
+Mona is working on a first draft of the README. Can you help by adding a description to the repository? 
 
 ### :keyboard: Activity: Adding a repository description
 
