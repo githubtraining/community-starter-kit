@@ -1,6 +1,6 @@
 The open source community is full of the most passionate and talented people in the world. We know, because we work with them every day. Learn how to help the community find and contribute to your project.
 
-There are millions of projects on GitHub, all competing for attention from the millions of open source contributors available to help. In this course, you will learn about the informal standards the community has adopted to make it easier to find and contribute to projects.
+In this course, you will learn about the informal standards the community has adopted to make it easier to find and contribute to projects.
 
 In this course, you'll learn:
 
