@@ -1,7 +1,12 @@
 ## Understanding contributors
 
-XXXXXXXXXX the on-ramp for a contributor typically involves bugs --> feature recommendations --> PRs
-this may vary for more experienced contributors XXXXXXXXXX
+The path that most contributors take to opening their first pull request on a repository typically looks like:
+
+- Create an isssue reporting a bug
+- Create an issue requesting a new feature
+- Create a pull request making a change to the repository
+
+More seasoned contributors might bypass some of those steps before creating their first pull request, but you can add helpful templates to a repository that makes it easier for _everyone_ to get involved no matter their previous experience with contributing to open source projects. 
 
 ## Step 4: Adding issue templates
 
