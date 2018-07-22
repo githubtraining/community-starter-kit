@@ -4,7 +4,7 @@
 
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the `CONTRIBUTING.md` document
-1. Find the text marked LABEL PLACEHOLDER and add a description for the label
+1. Find the text marked DESCRIPTION PLACEHOLDER and add a description for the label
 1. After editing the `CONTRIBUTING.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
