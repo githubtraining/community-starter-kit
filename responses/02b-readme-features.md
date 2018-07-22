@@ -1,6 +1,9 @@
 @{{ user.username }} Marketing gave us a with a few bullets for the features (they are so good at this stuff). Here is what they recommended:
 
-> XXXXXXXXXXXXXX
+> Welcome new users with customized messages based off maintainer defined comments in a `.github/config.yml` file.
+> - New Issue welcomes
+> - New Pull request welcomes
+> - Merge pull request welcomes
 
 Do you mind adding it to the README in this pull request where Mona put the placeholder?
 
