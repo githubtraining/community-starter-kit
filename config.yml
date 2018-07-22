@@ -8,6 +8,7 @@ template:
   name: community-starter-kit
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
+  - type: updateBranchProtection
   - type: createIssue
     title: Preparing your project for open source
     body: 01-welcome-story.md
@@ -16,7 +17,7 @@ before:
 steps:
   - title: Add a README
     description: Welcome users to the repository with a descriptive README
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues/1
     event: issues.closed
     actions:
       - type: createPullRequest
@@ -38,21 +39,24 @@ steps:
         filename: README.md
         action_id: readme
       - type: gate
-        left: '%actions.readme%'
+        left: '/DESCRIPTION PLACEHOLDER/'
         operator: test
-        right: '/DESCRIPTION PLACEHOLDER/'
+        right: '%actions.readme%'
         else:
-          type: respond
-          with: 02a-readme-description.md
+          type: createReview
+          body: 02a-readme-description.md
+          event: REQUEST_CHANGES
       - type: gate
-        left: '%actions.readme%'
+        left: '/FEATURES PLACEHOLDER/'
         operator: test
-        right: '/FEATURES PLACEHOLDER/'
+        right: '%actions.readme%'
         else:
-          type: respond
-          with: 02b-readme-features.md
-      - type: respond
-        with: 02c-readme-done.md
+          type: createReview
+          body: 02b-readme-features.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 02c-readme-done.md
+        event: APPROVE
 
   - title: Merge the README
     description: Merge the pull request to add the README
@@ -80,14 +84,16 @@ steps:
         filename: getting-started.md
         action_id: file
       - type: gate
-        left: '%actions.file%'
+        left: '/CONFIGS PLACEHOLDER/'
         operator: test
-        right: '/CONFIGS PLACEHOLDER/'
+        right: '%actions.file%'
         else:
-          type: respond
-          with: 03a-docs-configs.md
-      - type: respond
-        with: 03b-docs-done.md
+          type: createReview
+          body: 03a-docs-configs.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 03b-docs-done.md
+        event: APPROVE
 
   - title: Merge the user documentation
     description: Merge the pull request to add the user documentation
@@ -118,10 +124,12 @@ steps:
         operator: includes
         right: path:.github/ISSUE_TEMPLATE/bug-report.md
         else:
-          type: respond
-          with: 04a-template-location.md
-      - type: respond
-        with: 04b-template-done.md
+          type: createReview
+          body: 04a-template-location.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 04b-template-done.md
+        event: APPROVE
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template
@@ -149,22 +157,25 @@ steps:
         filename: CONTRIBUTING.md
         action_id: file
       - type: gate
-        left: '%actions.file%'
+        left: '/DESCRIPTION PLACEHOLDER/'
         operator: test
-        right: '/DESCRIPTION PLACEHOLDER/'
+        right: '%actions.file%'
         else:
-          type: respond
-          with: 05a-contributing-labels.md
-      - type: respond
-        with: 06-add-labels.md
+          type: createReview
+          body: 05a-contributing-labels.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 06-add-labels.md
+        event: COMMENT
 
   - title: Add custom labels to your project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
-    event: issues.labeled
+    event: pull_request.labeled
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
-      - type: respond
-        with: 06a-label-done.md
+      - type: createReview
+        event: APPROVE
+        body: 06a-label-done.md
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide
@@ -192,14 +203,16 @@ steps:
         filename: LICENSE.md
         action_id: file
       - type: gate
-        left: '%actions.file%'
+        left: '/\[year\]|\[fullname\]/'
         operator: test
-        right: '/\[year\]|\[fullname\]/'
+        right: '%actions.file%'
         else:
-          type: respond
-          with: 07a-replace-placeholders.md
-      - type: respond
-        with: 07b-license-done.md
+          type: createReview
+          body: 07a-replace-placeholders.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 07b-license-done.md
+        event: APPROVE
 
   - title: Merge the license
     description: Merge the pull request to add your license
@@ -227,14 +240,16 @@ steps:
         filename: code-of-conduct.md
         action_id: file
       - type: gate
-        left: '%actions.file%'
+        left: '/CONTRIBUTOR CODE/'
         operator: test
-        right: '/CONTRIBUTOR CODE/'
+        right: '%actions.file%'
         else:
-          type: respond
-          with: 08a-replace-placeholders.md
-      - type: respond
-        with: 08b-code-done.md
+          type: createReview
+          body: 08a-replace-placeholders.md
+          event: REQUEST_CHANGES
+      - type: createReview
+        body: 08b-code-done.md
+        event: APPROVE
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct
