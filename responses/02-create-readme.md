@@ -16,7 +16,7 @@ The `README.md` is the landing page for your project. It helps people understand
 
 ### Check it out
 
-Mona's README is missing some of the information above. Will you help Mona fill in some of the missing information?
+Mona's README is missing some of the information above. Will you help Mona by replacing the placeholder text?
 
 
 ### :keyboard: Activity: Creating a README
