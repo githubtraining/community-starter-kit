@@ -219,22 +219,22 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add the Code of Conduct
-      description: Add a Code of Conduct to set expectations for behavior in your project
-      event: pull_request.synchronize
-      link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
-      actions:
-        - type: getFileContents
-          filename: code-of-conduct.md
-          action_id: file
-        - type: gate
-          left: '%actions.file%'
-          operator: test
-          right: '/CONTRIBUTOR CODE/'
-          else:
-            type: respond
-            with: 08a-replace-placeholders.md
-        - type: respond
-          with: 08b-code-done.md
+    description: Add a Code of Conduct to set expectations for behavior in your project
+    event: pull_request.synchronize
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: getFileContents
+        filename: code-of-conduct.md
+        action_id: file
+      - type: gate
+        left: '%actions.file%'
+        operator: test
+        right: '/CONTRIBUTOR CODE/'
+        else:
+          type: respond
+          with: 08a-replace-placeholders.md
+      - type: respond
+        with: 08b-code-done.md
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct
