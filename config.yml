@@ -9,13 +9,13 @@ template:
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
   - type: createIssue
-    title: Adding topics
+    title: Preparing your project for open source
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
 steps:
   - title: Add a README
-    description: ___
+    description: Welcome users to the repository with a descriptive README
     link: https://github.com/{{ user.username }}/{{ course.template.name }}
     event: issues.closed
     actions:
@@ -30,7 +30,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Edit the README
-    description: ___
+    description: Describe the purpose and benefits of your project
     event: pull_request.synchronize
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -54,8 +54,8 @@ steps:
       - type: respond
         with: 02c-readme-done.md
 
-  - title: Merge the pull request
-    description: Merge the pull request to add your README
+  - title: Merge the README
+    description: Merge the pull request to add the README
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -71,8 +71,8 @@ steps:
         data:
           prURL: '%actions.pr.data.html_url%'
 
-  - title: Edit the docs
-    description: ___
+  - title: Create user documentation
+    description: Support your users with great documentation
     event: pull_request.synchronize
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -89,8 +89,8 @@ steps:
       - type: respond
         with: 03b-docs-done.md
 
-  - title: Merge the second pull request
-    description: Merge the second pull request to add your documentation
+  - title: Merge the user documentation
+    description: Merge the pull request to add the user documentation
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -107,7 +107,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add an issue template
-    description: ___
+    description: Use issue templates to gather useful information from contributors
     event: pull_request.synchronize
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -123,8 +123,8 @@ steps:
       - type: respond
         with: 04b-template-done.md
 
-  - title: Merge the third pull request
-    description: Merge the third pull request to add your issue template
+  - title: Merge the issue template
+    description: Merge the pull request to add your issue template
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -141,7 +141,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add a CONTRIBUTING guide
-    description: ___
+    description: A CONTRIBUTING guide is used to tell others how they can help
     event: pull_request.synchronize
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -158,16 +158,16 @@ steps:
       - type: respond
         with: 06-add-labels.md
 
-  - title: Add a label to your pull request
-    description: ___
+  - title: Add custom labels to your project
+    description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
     event: issues.labeled
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
       - type: respond
         with: 06a-label-done.md
 
-  - title: Merge the fourth pull request
-    description: Merge the fourth pull request to add your contributing guide
+  - title: Merge the CONTRIBUTING guide
+    description: Merge the pull request to add your contributing guide
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -183,8 +183,8 @@ steps:
         data:
           prURL: '%actions.pr.data.html_url%'
 
-  - title: Edit the license
-    description: ___
+  - title: Add the license
+    description: Add a license to your open source project
     event: pull_request.synchronize
     link:
     actions:
@@ -201,8 +201,8 @@ steps:
       - type: respond
         with: 07b-license-done.md
 
-  - title: Merge the fifth pull request
-    description: Merge the fifth pull request to add your license
+  - title: Merge the license
+    description: Merge the pull request to add your license
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -218,8 +218,8 @@ steps:
         data:
           prURL: '%actions.pr.data.html_url%'
 
-  - title: Edit the Code of Conduct
-      description: ___
+  - title: Add the Code of Conduct
+      description: Add a Code of Conduct to set expectations for behavior in your project
       event: pull_request.synchronize
       link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
       actions:
@@ -236,8 +236,8 @@ steps:
         - type: respond
           with: 08b-code-done.md
 
-  - title: Merge the final pull request
-    description: Merge the final pull request to add your Code of Conduct
+  - title: Merge the Code of Conduct
+    description: Merge the pull request to add your Code of Conduct
     event: pull_request.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
@@ -252,8 +252,8 @@ steps:
         data:
           issueURL: '%actions.issue.data.html_url%'
 
-  - title: Close the issue
-    description: ___
+  - title: Help users find the project
+    description: Add repository topics to help GitHub categorize and recommend your project
     event: issues.closed
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
     actions:
