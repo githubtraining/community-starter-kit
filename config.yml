@@ -10,98 +10,252 @@ template:
 before:
   - type: createIssue
     title: Adding topics
-    body: 01_add_topics.md
+    body: 01-welcome-story.md
+    comments:
+      - 01a-add-description.md
 steps:
-  - title: Adding topics
-    description: Apply terms to your repository to make it easier for people to find your work
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+  - title: Add a README
+    description: ___
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}
     event: issues.closed
     actions:
-      - type: createIssue
-        action_id: new_issue
-        title: Targeted labels
-        body: 02_targeted_labels.md
+      - type: createPullRequest
+        title: Add a README
+        body: 02-create-readme.md
+        head: add-readme
+        action_id: pr
       - type: respond
-        with: next.md
+        with: 01n-next.md
         data:
-          issueURL: '%actions.new_issue.data.html_url%'
+          prURL: '%actions.pr.data.html_url%'
 
-  - title: Targeted labels
-    description: Make it easier to identify the purpose of issues and pull requests in your repository
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}/labels
-    event: label.created
+  - title: Edit the README
+    description: ___
+    event: pull_request.synchronize
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
-      - type: gate
-        left: '%payload.label.name%'
-        operator: test
-        right: /done/i
-      - type: createIssue
-        action_id: new_issue
-        title: Repository description
-        body: 04_repository_description.md
-        data:
-          private: '%payload.repository.private%'
-      - type: respond
-        issue: Targeted labels
-        with: 02r_targeted_labels.md
-        data:
-          issueURL: '%actions.new_issue.data.html_url%'
-      - type: closeIssue
-        issue: Targeted labels
-
-  - title: Repository description
-    description: Identify what your repository is trying to accomplish with a repository description
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
-    event: issues.labeled
-    actions:
-      - type: gate
-        left: '%payload.label.name%'
-        operator: test
-        right: /done/i
-      - type: gate
-        left: '%payload.repository.description%'
-        else:
-          - type: respond
-            with: 04e_repository_description.md
-      - type: createIssue
-        action_id: new_issue
-        title: Other repository files
-        body: 05_other_repository_files.md
-      - type: respond
-        with: 04r_repository_description.md
-        data:
-          issueURL: '%actions.new_issue.data.html_url%'
-
-  - title: Other ways to improve your repository
-    description: You've made it easier for people to find your repository, now provide helpful aids to guide them on how to contribute
-    event: issues.closed
-    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
-    actions:
-      - type: createIssue
-        title: Code of Conduct
-        action_id: code_of_conduct
-        body: 08_collabs-code-new.md
-      - type: createIssue
-        title: Contributing Guide
-        action_id: contributing_guide
-        body: 08_collabs-contributing-new.md
-      - type: createIssue
-        title: License
-        action_id: license
-        body: 08_collabs-license-new.md
-      - type: createIssue
-        title: README
+      - type: getFileContents
+        filename: README.md
         action_id: readme
-        body: 08_collabs-README-new.md
-      - type: createIssue
-        title: Issue and Pull Request Templates
-        action_id: templates
-        body: 08_collabs-templates-new.md
+      - type: gate
+        left: '%actions.readme%'
+        operator: test
+        right: '/DESCRIPTION PLACEHOLDER/'
+        else:
+          type: respond
+          with: 02a-readme-description.md
+      - type: gate
+        left: '%actions.readme%'
+        operator: test
+        right: '/FEATURES PLACEHOLDER/'
+        else:
+          type: respond
+          with: 02b-readme-features.md
       - type: respond
-        with: 09_advertising_your_repo.md
+        with: 02c-readme-done.md
+
+  - title: Merge the pull request
+    description: Merge the pull request to add your README
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createPullRequest
+        head: add-docs
+        title: Add documentation
+        body: 03-add-docs.md
+        action_id: pr
+      - type: respond
+        with: 02n-next.md
         data:
-          code_of_conduct: '%actions.code_of_conduct.data.html_url%'
-          contributing_guide: '%actions.contributing_guide.data.html_url%'
-          license: '%actions.license.data.html_url%'
-          readme: '%actions.readme.data.html_url%'
-          templates: '%actions.templates.data.html_url%'
+          prURL: '%actions.pr.data.html_url%'
+
+  - title: Edit the docs
+    description: ___
+    event: pull_request.synchronize
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: getFileContents
+        filename: getting-started.md
+        action_id: file
+      - type: gate
+        left: '%actions.file%'
+        operator: test
+        right: '/CONFIGS PLACEHOLDER/'
+        else:
+          type: respond
+          with: 03a-docs-configs.md
+      - type: respond
+        with: 03b-docs-done.md
+
+  - title: Merge the second pull request
+    description: Merge the second pull request to add your documentation
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createPullRequest
+        head: add-issue-template
+        title: Add an issue template
+        body: 04-helping-contributors.md
+        action_id: pr
+      - type: respond
+        with: 03n-next.md
+        data:
+          prURL: '%actions.pr.data.html_url%'
+
+  - title: Add an issue template
+    description: ___
+    event: pull_request.synchronize
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: getTree
+        action_id: tree
+      - type: gate
+        left: '%actions.tree.data.tree%'
+        operator: includes
+        right: path:.github/ISSUE_TEMPLATE/bug-report.md
+        else:
+          type: respond
+          with: 04a-template-location.md
+      - type: respond
+        with: 04b-template-done.md
+
+  - title: Merge the third pull request
+    description: Merge the third pull request to add your issue template
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createPullRequest
+        head: add-contrib-guide
+        title: Add a contributing guide
+        body: 05-contributing-guide.md
+        action_id: pr
+      - type: respond
+        with: 04n-next.md
+        data:
+          prURL: '%actions.pr.data.html_url%'
+
+  - title: Add a CONTRIBUTING guide
+    description: ___
+    event: pull_request.synchronize
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: getFileContents
+        filename: CONTRIBUTING.md
+        action_id: file
+      - type: gate
+        left: '%actions.file%'
+        operator: test
+        right: '/DESCRIPTION PLACEHOLDER/'
+        else:
+          type: respond
+          with: 05a-contributing-labels.md
+      - type: respond
+        with: 06-add-labels.md
+
+  - title: Add a label to your pull request
+    description: ___
+    event: issues.labeled
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: respond
+        with: 06a-label-done.md
+
+  - title: Merge the fourth pull request
+    description: Merge the fourth pull request to add your contributing guide
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createPullRequest
+        head: add-license
+        title: Add a license
+        body: 07-add-license.md
+        action_id: pr
+      - type: respond
+        with: 06n-next.md
+        data:
+          prURL: '%actions.pr.data.html_url%'
+
+  - title: Edit the license
+    description: ___
+    event: pull_request.synchronize
+    link:
+    actions:
+      - type: getFileContents
+        filename: LICENSE.md
+        action_id: file
+      - type: gate
+        left: '%actions.file%'
+        operator: test
+        right: '/\[year\]|\[fullname\]/'
+        else:
+          type: respond
+          with: 07a-replace-placeholders.md
+      - type: respond
+        with: 07b-license-done.md
+
+  - title: Merge the fifth pull request
+    description: Merge the fifth pull request to add your license
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createPullRequest
+        head: add-code
+        title: Add a Code of Conduct
+        body: 08-code-of-conduct.md
+        action_id: pr
+      - type: respond
+        with: 07n-next.md
+        data:
+          prURL: '%actions.pr.data.html_url%'
+
+  - title: Edit the Code of Conduct
+      description: ___
+      event: pull_request.synchronize
+      link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+      actions:
+        - type: getFileContents
+          filename: code-of-conduct.md
+          action_id: file
+        - type: gate
+          left: '%actions.file%'
+          operator: test
+          right: '/CONTRIBUTOR CODE/'
+          else:
+            type: respond
+            with: 08a-replace-placeholders.md
+        - type: respond
+          with: 08b-code-done.md
+
+  - title: Merge the final pull request
+    description: Merge the final pull request to add your Code of Conduct
+    event: pull_request.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createIssue
+        title: Make it visible
+        body: 09-make-it-visible.md
+        action_id: issue
+      - type: respond
+        with: 08n-next.md
+        data:
+          issueURL: '%actions.issue.data.html_url%'
+
+  - title: Close the issue
+    description: ___
+    event: issues.closed
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues
+    actions:
+      - type: respond
+        with: 10-finish.md
