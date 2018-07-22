@@ -1,15 +1,20 @@
-## Nice work
+## It's a wrap!
 
-Congratulations @{{ user.username }}, you've completed this course!
+Mona's project is all ready to be published as open source, thanks to you @{{ user.username }}!
 
 ![congratulations](https://octodex.github.com/images/welcometocat.png)
 
-## What went well
+### What went well
 
 During this course you successfully:
 
-- Added topics to your repository
-- Created labels for issues and pull requests
-- Described your repository
+- Helped others understand how they can use Mona's project
+- Recognized the ways people may contribute
+- Established systems to organize contributions
+- Set expectations for contributors
+- Made Mona's project easy to find
 
 Want to keep learning? Feel free to [check out our other courses]({{ host }}/courses).
+
+<hr>
+<h3 align="center">Watch below for my response</h3>

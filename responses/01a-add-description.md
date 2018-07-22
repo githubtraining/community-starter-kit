@@ -1,31 +1,25 @@
-## Repository Description
+## Step 1: Add a Repository Description
 
-To make your project easy to find, there are some files and settings that we can modify. An easy way to make your project discoverable is to update the repository description to better identify what your repository is for.
+First, we are going to focus on helping others understand Mona's project. After all, people are most likely to contribute to projects they use - so no users === no contributors.
 
-### :keyboard: Activity: Adding a project description
+We want users to understand the project at a glance, so we will start by adding a description and creating the README.
 
-{% if private %}
+Mona is working on a first draft of the README, so can you help by adding a description to the repository? You can find the instructions below.
+
+### :keyboard: Activity: Adding a repository description
+
 1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project.
 1. Click the **Edit** button located on the right side of the screen (above the green **Clone of download** button).
 1. Enter a description for your project in the **Description** field.
 1. (Optional) If you have a website related to your project you can add it in the **Website** field.
 1. Click the **Save** button.
-{% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
-1. Click the **Add** button on the Description row.
-1. Enter a description for your project in the **Description** field.
-1. (Optional) If you have a website related to your project you can add it in the **Website** field.
-1. Click the **Save** button.
-{% endif %}
-
-### :keyboard: Using labels
-
-Once you have added a description to your repository, perform the following:
-
-1. Select the **gear** icon next to **Labels** on the right side of the screen
-1. Select the `done` label you recently created
+1. When you are finished, go ahead and **close this issue**.
 
 <hr>
-<h3 align="center">Watch below for my response</h3>
 
-> :robot: Once you push your project to GitHub, I'll provide the next steps in your journey.
+> **Protip** If you are working in a public repository, GitHub has created a helpful [Community profile](https://github.com/{{ user.username }}/community-starter-kit/community) in the insights tab. The Community profile has helpful quick-links to complete many of the tasks in this course.
+
+<hr>
+<h3 align="center">Watch for my response below</h3>
+
+> :robot: I'm waiting for you to close this issue

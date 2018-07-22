@@ -1,8 +1,8 @@
 ## Step 6: Add labels
 
-Adding topics to a repository is a great start, but there are more ways to make your repository easier for the community to find your open source project. The open source community uses **labels** to help identify issues and pull requests that are looking for contributions from newcomers to the open source scene.
+The open source community uses **labels** to help organize issues and pull requests within their repositories. They also use them to identify issues and pull requests that are looking for contributions from newcomers or to highlight specific skills needed to respond to the request.
 
-Labels enable you to identify what a specific issue or pull request is trying to accomplish. By default, a new GitHub repository comes with the following labels out of the box:
+By default, a new GitHub repository comes with the following labels out of the box:
 
 - bug
 - duplicate
@@ -12,18 +12,17 @@ Labels enable you to identify what a specific issue or pull request is trying to
 - question
 - wontfix
 
-These initial labels are an awesome way of identifying your issues and pull requests, however, you can add (or delete) labels to not only identify the focus of the issue or pull request but also make it easier for people to find your issues and pull requests. If you find yourself struggling with a task or want to make it easier for someone to contribute to your project, using specific labels will accomplish this goal.
-
-Labels can be customized with a unique name, a description to identify what the label should be used for, and an awesome color! Labels like `first-timers-only` make it easy for newcomers to open source to find issues and pull requests in your project that need some help but are also welcoming and supportive to new open source contributors.
+These initial labels are awesome, but most maintainers add (or delete) labels to fit their project. Labels like `first-timers-only` make it easy for newcomers to find suitable issues and pull requests, but they also tell the world you are welcoming and supportive to new open source contributors.
 
 ### :keyboard: Activity: Adding labels to your repository
 
-1. On the **Issues** or **Pull requests** tab, click **Labels**
-1. Click **New label**
-1. Enter `done` in the **Label name** field, feel free to add a **Description** or select a new **Color**
-1. Click **Create label**
+1. On the top right side of this pull request view, find the section titled: "Labels"
+1. Click the gear icon
+1. Notice the text field at the top says **Filter or create labels**
+1. Type the name of the label you would like to create
+1. You will see a selection that reads "Create a new label", select that option
+1. Customize your label with a description and color
+1. Click **Save**
 
 <hr>
 <h3 align="center">Watch below for my response</h3>
-
-> :robot: Once you push your project to GitHub, I'll provide the next steps in your journey.

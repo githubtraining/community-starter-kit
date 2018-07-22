@@ -1,36 +1,30 @@
-{% if private %}
-Your project doesn't have a `README.md` file. Even though your project might be private, that doesn't mean the `README.md` file isn't useful. The `README.md` file can inform other contributors that you invite to your project how to work on the project, display badges from GitHub Integrations that display the health or status of the project, and more.
-{% else %}
-Your project doesn't have a `README.md` file. A `README.md` file is useful for telling other people why your project is useful, what they can do with your project, how they can use it, and more importantly, how they can contribute to your project.
-{% endif %}
+## Step 2: Add a README
 
-A `README` is often the first item a visitor will see when visiting your repository. `README` files typically include information on:
+:wave: @{{ user.username }}, Mona has created a README and needs your help making it :sparkles:. 
+
+### Why you need a README
+
+The `README.md` is the landing page for your project. It helps people understand, at a glance, whether your project is something that will be useful to them.
+
+`README` files typically include information on:
 
 - What the project does
-- Why the project is useful
+- The features and benefits of the project
 - How users can get started with the project
 - Where users can get help with your project
 - Who maintains and contributes to the project
 
-### :keyboard: Activity: Adding a README
+### Check it out
 
-{% if private %}
-1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project.
-1. Below the list of files in your project is a notification reading: "Add a README with an overview of your project.", click the **Add a README** button found within that notification
-1. Edit the new README file to describe your projects, using the bullet points listed above :point_up:
-1. After editing the README file, scroll down and click the **Commit new file** button.
+Mona's README is missing some of the information above. Will you help Mona fill in some of the missing information?
 
-    > This is committing your README file directly to `master`. Normally, you would create a pull request when making changes to your projects, but README files are very important on GitHub.
 
-{% else %}
-1. Access the [Community profile pane](https://github.com/{{ user.username }}/community-starter-kit/community)
-1. Click the **Add** button on the README row.
-1. Edit the new README file to describe your projects, using the bullet points listed above :point_up:
-1. After editing the README file, scroll down and click the **Commit new file** button.
+### :keyboard: Activity: Creating a README
 
-    > This is committing your README file directly to `master`. Normally, you would create a pull request when making changes to your projects, but README files are very important on GitHub.
-
-{% endif %}
+1. Access the **Files changed** tab in this pull request
+1. Click the :pencil2: pencil icon to edit the README
+1. Find the text marked PLACEHOLDER and add some bullets that may be helpful to new users
+1. After editing the README file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">I won't respond to this issue, just close it when you are done!</h3>
+<h3 align="center">Watch below for my response</h3>
