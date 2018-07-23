@@ -1,6 +1,4 @@
-## Welcome to the community starter kit
-
-Meet Mona. 
+## Meet Mona 
 
 ![Monalisa octocat: the original](https://octodex.github.com/images/original.png)
 
