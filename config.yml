@@ -160,7 +160,7 @@ steps:
       - type: respond
         with: 06-add-labels.md
 
-  - title: Add custom labels to your project
+  - title: Add custom labels to the project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
     event: pull_request.labeled
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
