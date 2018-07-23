@@ -39,14 +39,14 @@ steps:
         action_id: readme
       - type: gate
         left: '/DESCRIPTION PLACEHOLDER/'
-        operator: test
+        operator: '!test'
         right: '%actions.readme%'
         else:
           type: respond
           with: 02a-readme-description.md
       - type: gate
         left: '/FEATURES PLACEHOLDER/'
-        operator: test
+        operator: '!test'
         right: '%actions.readme%'
         else:
           type: respond
@@ -81,7 +81,7 @@ steps:
         action_id: file
       - type: gate
         left: '/CONFIGS PLACEHOLDER/'
-        operator: test
+        operator: '!test'
         right: '%actions.file%'
         else:
           type: respond
@@ -150,7 +150,7 @@ steps:
         action_id: file
       - type: gate
         left: '/DESCRIPTION PLACEHOLDER/'
-        operator: test
+        operator: '!test'
         right: '%actions.file%'
         else:
           type: respond
@@ -193,7 +193,7 @@ steps:
         action_id: file
       - type: gate
         left: '/\[year\]|\[fullname\]/'
-        operator: test
+        operator: '!test'
         right: '%actions.file%'
         else:
           type: respond
@@ -228,7 +228,7 @@ steps:
         action_id: file
       - type: gate
         left: '/CONTRIBUTOR CODE/'
-        operator: test
+        operator: '!test'
         right: '%actions.file%'
         else:
           type: respond
