@@ -1,4 +1,4 @@
-## Step 6: Add labels
+## Step 9: Add labels
 
 The open source community uses **labels** to help organize issues and pull requests within their repositories. They also use them to identify issues and pull requests that are looking for contributions from newcomers or to highlight specific skills needed to respond to the request.
 
