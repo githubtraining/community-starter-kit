@@ -31,7 +31,7 @@ Will you help Mona ensure the documentation covers these minimum topics?
 
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the `getting-started.md` document
-1. Find the text marked CONFIGS PLACEHOLDER and add some bullets that may be helpful to new users
+1. Find the text marked CONFIGS PLACEHOLDER and add some example welcome messages that may be helpful to new users
 1. After editing the `getting-started.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
