@@ -1,3 +1,5 @@
+## Step 9: Add custom labels to the project
+
 :wave: @{{ user.username }}, it looks like one or more of the labels still need a description. Can you help out with these?
 
 ### :keyboard: Activity: Updating label descriptions

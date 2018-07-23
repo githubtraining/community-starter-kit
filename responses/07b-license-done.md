@@ -1,3 +1,5 @@
+## Step 12: Merge the license
+
 Thanks for making those updates @{{ user.username }}! Go ahead and merge the LICENSE now and we will move on to the Code of Conduct.
 
 ### :keyboard: Activity: Merge the pull request

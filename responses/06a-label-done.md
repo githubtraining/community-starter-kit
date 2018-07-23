@@ -1,3 +1,5 @@
+## Step 10: Merge the CONTRIBUTING guide
+
 Nice work @{{ user.username }}! You successfully added labels to this project. Labels will help Mona and her community keep things organized and quickly identify what an issue or pull request is trying to accomplish.
 
 Go ahead and merge the CONTRIBUTING guide.

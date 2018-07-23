@@ -1,4 +1,4 @@
-## Step 7: Add a LICENSE
+## Step 11: Add the LICENSE
 
 Licenses are vital in open source repositories, because they set the rules for how others are allowed to use, change, and contribute to your project. In fact, if Mona doesn't add an open source license to her project, it is not technically open source -- in that case, it could be considered copyrighted work.
 

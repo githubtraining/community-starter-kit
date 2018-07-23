@@ -8,7 +8,7 @@ Most contributors take a gradual path to getting involved in an open source comm
 
 More seasoned open source contributors might go straight to creating their first pull request, so adding helpful templates to a repository that makes it easier for _everyone_ to get involved, regardless of their previous experience. 
 
-## Step 4: Adding issue templates
+## Step 6: Adding an issue template
 
 When you add an issue template and pull request template to your repository, project contributors will automatically see the template's contents when they open a new issue or pull request. Templates help you standardize the information you'd like included when contributors open issues.
 

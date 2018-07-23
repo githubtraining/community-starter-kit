@@ -1,4 +1,4 @@
-## Step 3: Create user documentation
+## Step 4: Create user documentation
 
 Well written user documentation is the key to a great user experience. Experts say, "if a user can't figure out how to use your project in less than an hour, they will move on." It pays to attract a few technical writers to your project :wink:
 

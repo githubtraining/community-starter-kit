@@ -1,4 +1,4 @@
-## Step 8: Add a Code of Conduct
+## Step 13: Add the Code of Conduct
 
 Having a Code of Conduct is really important. Instead of re-writing the wheel, Mona wants to adopt the **Contributor Covenant Code of Conduct**.
 

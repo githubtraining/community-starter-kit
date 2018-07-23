@@ -1,3 +1,5 @@
+## Step 7: Merge the issue template
+
 These issue templates are going to help users become contributors in no time! Let's go ahead and merge them in. 
 
 ### :keyboard: Activity: Merge the pull request

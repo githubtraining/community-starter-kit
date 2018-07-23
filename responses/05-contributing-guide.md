@@ -1,4 +1,4 @@
-## Step 5: Add a CONTRIBUTING guide
+## Step 8: Add a CONTRIBUTING guide
 
 A contributing guide provides important information to those who are interested in helping you with your project. Without a contributing guide, they might not know what you need help with, how they can get started, or how you like to communicate.
 

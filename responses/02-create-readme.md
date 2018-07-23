@@ -1,4 +1,4 @@
-## Step 2: Add a README
+## Step 2: Edit the README
 
 :wave: @{{ user.username }}, Mona has created a README and needs your help making it :sparkles:. 
 

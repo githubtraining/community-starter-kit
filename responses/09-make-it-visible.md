@@ -1,4 +1,4 @@
-## Step 9: Add topics
+## Step 15: Help users find the project
 
 GitHub uses repository topics to help people find projects that might be of interest based on their search patterns or the projects they are working on.
 
