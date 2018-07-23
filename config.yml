@@ -137,6 +137,7 @@ steps:
         title: Add a contributing guide
         body: 05-contributing-guide.md
         action_id: pr
+      - type: updateBranchProtection
       - type: respond
         with: 04n-next.md
         data:
@@ -159,7 +160,6 @@ steps:
           with: 05a-contributing-labels.md
       - type: respond
         with: 06-add-labels.md
-      - type: updateBranchProtection
 
   - title: Add custom labels to the project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
