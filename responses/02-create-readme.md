@@ -23,7 +23,7 @@ Mona's README is missing some of the information above. Will you help Mona by re
 
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the README
-1. Find the two placeholder texts labeled DESCRIPTION PLACEHOLDER and FEAUTRES PLACEHOLDER. Replace them with some bulleted information that may be helpful to new users
+1. Find the two placeholder texts labeled DESCRIPTION PLACEHOLDER and FEATURES PLACEHOLDER. Replace them with some bulleted information that may be helpful to new users
 1. After editing the README file, scroll down and click the **Commit changes** button.
 
 <hr>
