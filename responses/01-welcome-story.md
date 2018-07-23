@@ -2,9 +2,9 @@
 
 ![Monalisa octocat: the original](https://octodex.github.com/images/original.png)
 
-Mona is part of a growing team of developers. To help onboard their new teammates, Mona has created a cool new Probot app called **Welcome-bot** that automatically generates messages when new team members create their first issue and open or merge their first pull request. 
+Mona is part of a growing team of developers. To help onboard new teammates, Mona has created a slick [Probot](https://probot.github.io/) app called **Welcome**. Welcome automatically generates friendly messages when new team members create their first issue and open or merge their first pull request. 
 
-So far, Mona has been working with a few members of the team to fine-tune the app, but someone recommended that Mona make the project open source so that other projects can start creating the same awesome experience for first timers. Mona has never published an open source project before, so after receiving the OK from the legal team, Mona is looking for someone to help out.
+So far, Mona has been working with a few members of the team to fine-tune the app, but someone recommended they make the project open source so that other projects can start creating the same awesome experiences for first timers. Mona has never published an open source project before, so after receiving the OK from legal, Mona is looking for some help.
 
 In this course, you will help Mona get the **Welcome-bot** repository ready for the open source community.
 
