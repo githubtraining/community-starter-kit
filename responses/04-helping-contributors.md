@@ -1,7 +1,12 @@
 ## Understanding contributors
 
-XXXXXXXXXX the on-ramp for a contributor typically involves bugs --> feature recommendations --> PRs
-this may vary for more experienced contributors XXXXXXXXXX
+Most contributors take a gradual path to getting involved in an open source community. It usually looks something like this: 
+
+1. Reporting a bug
+1. Suggesting a new feature
+1. Creating a pull request
+
+More seasoned open source contributors might go straight to creating their first pull request, so adding helpful templates to a repository that makes it easier for _everyone_ to get involved, regardless of their previous experience. 
 
 ## Step 4: Adding issue templates
 

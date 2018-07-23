@@ -1,6 +1,9 @@
 @{{ user.username }} Marketing gave us a with a few bullets for the features (they are so good at this stuff). Here is what they recommended:
 
-> XXXXXXXXXXXXXX
+> Welcome new users with maintainer defined comments the first time your users:
+> - Create a new issue
+> - Open a new pull request
+> - Merge their first pull request
 
 Do you mind adding it to the README in this pull request where Mona put the placeholder?
 

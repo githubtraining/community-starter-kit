@@ -1,6 +1,6 @@
 @{{ user.username }} Writing a :sparkles: project description can be intimidating. What do you think of something like this:
 
-> XXXXXXXXXXXXXX
+> A GitHub App built with [probot](https://github.com/probot/probot) that celebrates new user activity within your repository.
 
 If you agree this is ok, do you mind adding it to the README in this pull request where Mona put the placeholder?
 
