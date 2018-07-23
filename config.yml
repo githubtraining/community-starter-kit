@@ -188,7 +188,7 @@ steps:
   - title: Add the license
     description: Add a license to your open source project
     event: pull_request.synchronize
-    link:
+    link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
       - type: getFileContents
         filename: LICENSE.md
