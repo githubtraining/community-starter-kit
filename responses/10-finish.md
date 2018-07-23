@@ -15,6 +15,3 @@ During this course you successfully:
 - Made Mona's project easy to find
 
 Want to keep learning? Feel free to [check out our other courses]({{ host }}/courses).
-
-<hr>
-<h3 align="center">Watch below for my response</h3>
