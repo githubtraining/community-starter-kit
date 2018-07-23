@@ -9,18 +9,18 @@ template:
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
   - type: createIssue
-    title: Preparing your project for open source
+    title: Preparing Mona's project for open source
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
 steps:
-  - title: Add a README
+  - title: Add a repository description
     description: Welcome users to the repository with a descriptive README
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues/1
     event: issues.closed
     actions:
       - type: createPullRequest
-        title: Add a README
+        title: Add a repository description
         body: 02-create-readme.md
         head: add-readme
         action_id: pr
