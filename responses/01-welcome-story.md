@@ -4,11 +4,11 @@ Meet Mona.
 
 ![Monalisa octocat: the original](https://octodex.github.com/images/original.png)
 
-Mona is part of a busy team of developers that is in the process of adding some new developers to the team. To help welcome these new teammates, she has created a cool new Probot app that automatically generates messages when they create their first issue, pull request, and merge their first pull request. 
+Mona is part of a growing team of developers. To help onboard their new teammates, Mona has created a cool new Probot app called **Welcome-bot** that automatically generates messages when new team members create their first issue and open or merge their first pull request. 
 
-So far, she has been working with a few members of her team to fine-tune the app, but one of her co-workers recommended that she make the project open source. Mona has never published an open source project before, so after receiving the OK from her legal team, she is looking for someone to help her out.
+So far, Mona has been working with a few members of the team to fine-tune the app, but someone recommended that Mona make the project open source so that other projects can start creating the same awesome experience for first timers. Mona has never published an open source project before, so after receiving the OK from the legal team, Mona is looking for someone to help out.
 
-In this course, you will help Mona get her repository ready for her open source community.
+In this course, you will help Mona get the **Welcome-bot** repository ready for the open source community.
 
 ### What is Probot
 
@@ -24,9 +24,9 @@ In this course, you will work with Mona to:
 - Set expectations for contributors
 - Make Mona's project easy to find
 
-### GitHub Training :heart:s welcome
+### We :heart:s welcome
 
-The maintainers of [**welcome**](https://github.com/behaviorbot/welcome) a probot app that welcomes new users graciously allowed us to use their awesome app for this course. If you are interested in contributing to an open source project, make sure to swing by the **welcome** repo. :heart:
+We want to thank the maintainers of [**welcome-bot**](https://github.com/behaviorbot/welcome), an actual Probot app that welcomes new users, for graciously allowing us to use their awesome app for this course. After your open source project is up and running, we recommend you check out **welcome** and some of the other bots created by [the developers of behaviorbot](https://github.com/behaviorbot).
 
 <hr>
 <h3 align="center">Keep reading below to find your first task</h3>
