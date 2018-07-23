@@ -113,6 +113,7 @@ steps:
     actions:
       - type: getTree
         action_id: tree
+        recursive: true
       - type: gate
         left: '%actions.tree.data.tree%'
         operator: includes
