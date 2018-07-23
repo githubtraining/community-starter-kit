@@ -8,7 +8,6 @@ template:
   name: community-starter-kit
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
-  - type: updateBranchProtection
   - type: createIssue
     title: Preparing your project for open source
     body: 01-welcome-story.md
@@ -43,20 +42,17 @@ steps:
         operator: test
         right: '%actions.readme%'
         else:
-          type: createReview
-          body: 02a-readme-description.md
-          event: REQUEST_CHANGES
+          type: respond
+          with: 02a-readme-description.md
       - type: gate
         left: '/FEATURES PLACEHOLDER/'
         operator: test
         right: '%actions.readme%'
         else:
-          type: createReview
-          body: 02b-readme-features.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 02c-readme-done.md
-        event: APPROVE
+          type: respond
+          with: 02b-readme-features.md
+      - type: respond
+        with: 02c-readme-done.md
 
   - title: Merge the README
     description: Merge the pull request to add the README
@@ -88,12 +84,10 @@ steps:
         operator: test
         right: '%actions.file%'
         else:
-          type: createReview
-          body: 03a-docs-configs.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 03b-docs-done.md
-        event: APPROVE
+          type: respond
+          with: 03a-docs-configs.md
+      - type: respond
+        with: 03b-docs-done.md
 
   - title: Merge the user documentation
     description: Merge the pull request to add the user documentation
@@ -124,12 +118,10 @@ steps:
         operator: includes
         right: path:.github/ISSUE_TEMPLATE/bug-report.md
         else:
-          type: createReview
-          body: 04a-template-location.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 04b-template-done.md
-        event: APPROVE
+          type: respond
+          with: 04a-template-location.md
+      - type: respond
+        with: 04b-template-done.md
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template
@@ -161,21 +153,18 @@ steps:
         operator: test
         right: '%actions.file%'
         else:
-          type: createReview
-          body: 05a-contributing-labels.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 06-add-labels.md
-        event: COMMENT
+          type: respond
+          with: 05a-contributing-labels.md
+      - type: respond
+        with: 06-add-labels.md
 
   - title: Add custom labels to your project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
     event: pull_request.labeled
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
-      - type: createReview
-        event: APPROVE
-        body: 06a-label-done.md
+      - type: respond
+        with: 06a-label-done.md
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide
@@ -207,12 +196,10 @@ steps:
         operator: test
         right: '%actions.file%'
         else:
-          type: createReview
-          body: 07a-replace-placeholders.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 07b-license-done.md
-        event: APPROVE
+          type: respond
+          with: 07a-replace-placeholders.md
+      - type: respond
+        with: 07b-license-done.md
 
   - title: Merge the license
     description: Merge the pull request to add your license
@@ -244,12 +231,10 @@ steps:
         operator: test
         right: '%actions.file%'
         else:
-          type: createReview
-          body: 08a-replace-placeholders.md
-          event: REQUEST_CHANGES
-      - type: createReview
-        body: 08b-code-done.md
-        event: APPROVE
+          type: respond
+          with: 08a-replace-placeholders.md
+      - type: respond
+        with: 08b-code-done.md
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct
