@@ -1,4 +1,4 @@
-## Step 2: Add a README
+## Step 2: Edit the README
 
 :wave: @{{ user.username }}, Mona has created a README and needs your help making it :sparkles:. 
 
@@ -19,7 +19,7 @@ The `README.md` is the landing page for your project. It helps people understand
 Mona's README is missing some of the information above. Will you help Mona by replacing the placeholder text?
 
 
-### :keyboard: Activity: Creating a README
+### :keyboard: Activity: Editing the README
 
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the README

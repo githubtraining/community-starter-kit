@@ -14,7 +14,7 @@ When you add an issue template and pull request template to your repository, pro
 
 ### Creating multiple templates
 
-In Open Source projects, templates make it easy for new contributors to create a bug reports, suggest new features, or contribute changes. Mona has already created an issue template for new, can you put one together for bugs?
+In open source projects, templates make it easy for new contributors to create bug reports, suggest new features, or contribute changes. Mona has already created an issue template for new, can you put one together for bugs?
 
 ### :keyboard: Activity: Adding an issue template
 
