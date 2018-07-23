@@ -22,7 +22,7 @@ In this course, you will work with Mona to:
 - Set expectations for contributors
 - Make Mona's project easy to find
 
-### We :heart:s welcome
+### We :heart: welcome
 
 We want to thank the maintainers of [**welcome-bot**](https://github.com/behaviorbot/welcome), an actual Probot app that welcomes new users, for graciously allowing us to use their awesome app for this course. After your open source project is up and running, we recommend you check out **welcome** and some of the other bots created by [the developers of behaviorbot](https://github.com/behaviorbot).
 
