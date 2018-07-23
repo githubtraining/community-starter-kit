@@ -116,7 +116,7 @@ steps:
       - type: gate
         left: '%actions.tree.data.tree%'
         operator: includes
-        right: path:.github/ISSUE_TEMPLATE/bug-report.md
+        right: path:/^\.github/ISSUE_TEMPLATE/bug-report.md%/
         else:
           type: respond
           with: 04a-template-location.md

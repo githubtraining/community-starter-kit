@@ -1,4 +1,4 @@
-It looks like you created a new file named {{ path }}. In order to use the multiple template feature, this template must be located at `.github/ISSUE_TEMPLATE/bug-report.md` in the root of your repository. Can you please move it to the correct location?
+It looks like you created a new file with the wrong name, or in the wrong location. In order to use the multiple template feature, this template must be located at `.github/ISSUE_TEMPLATE/bug-report.md` in the root of your repository. Can you please move it to the correct location?
 
 ### :keyboard: Activity: Moving an issue template
 
