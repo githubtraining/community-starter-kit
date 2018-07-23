@@ -12,7 +12,7 @@ Mona has already grabbed the license, can you please make sure the project detai
 
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the LICENSE.md file
-1. Find the placeholder text within the license and edit as needed
+1. Replace the `[year]` and `[fullname]` placeholder text within the license and edit as needed
 1. After editing the LICENSE file, scroll down and click the **Commit changes** button.
 
 <hr>
