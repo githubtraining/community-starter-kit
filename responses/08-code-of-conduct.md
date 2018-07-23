@@ -9,7 +9,7 @@ Can you help her grab the markdown version from [the contributor covenant websit
 1. Copy the markdown text from the latest version on [the contributor covenant website](https://www.contributor-covenant.org/)
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the `code-of-conduct.md` file
-1. Paste the markdown formatted text into the file
+1. Paste the markdown formatted text into the file, don't forget there is a placeholder for an email address ([INSERT EMAIL ADDRESS]) 
 1. Scroll down and click the **Commit changes** button.
 
 <hr>
