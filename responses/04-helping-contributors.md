@@ -1,12 +1,12 @@
 ## Understanding contributors
 
-The path that most contributors take to opening their first pull request on a repository typically looks like:
+Most contributors take a gradual path to getting involved in an open source community. It usually looks something like this: 
 
-- Create an isssue reporting a bug
-- Create an issue requesting a new feature
-- Create a pull request making a change to the repository
+1. Reporting a bug
+1. Suggesting a new feature
+1. Creating a pull request
 
-More seasoned contributors might bypass some of those steps before creating their first pull request, but you can add helpful templates to a repository that makes it easier for _everyone_ to get involved no matter their previous experience with contributing to open source projects. 
+More seasoned open source contributors might go straight to creating their first pull request, so adding helpful templates to a repository that makes it easier for _everyone_ to get involved, regardless of their previous experience. 
 
 ## Step 4: Adding issue templates
 
