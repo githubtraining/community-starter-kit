@@ -9,18 +9,18 @@ template:
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
   - type: createIssue
-    title: Preparing your project for open source
+    title: Preparing Mona's project for open source
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
 steps:
-  - title: Add a README
+  - title: Add a repository description
     description: Welcome users to the repository with a descriptive README
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/issues/1
     event: issues.closed
     actions:
       - type: createPullRequest
-        title: Add a README
+        title: Add a repository description
         body: 02-create-readme.md
         head: add-readme
         action_id: pr
@@ -161,7 +161,7 @@ steps:
         with: 06-add-labels.md
       - type: updateBranchProtection
 
-  - title: Add custom labels to your project
+  - title: Add custom labels to the project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
     event: pull_request.labeled
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls

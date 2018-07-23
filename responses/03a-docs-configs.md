@@ -1,4 +1,11 @@
-:wave: @{{ user.username }}, I have updated the configurations so they are pulled from a file in the repository called XXXXXXXX. Can you please update the instructions to tell the user how to set the configs in this file?
+:wave: @{{ user.username }}, the `getting-started.md` file is almost ready to be used, Mona just needs some example welcome messages added. Some example welcome messages you could add are:
+
+#### Example 1
+Welcome to our repository! Thanks for adding an issue, if you are reporting a bug or a feature request, please make sure to assign a label to this issue.
+
+#### Example 2
+
+Thank you for submitting a pull request to our repository. If this change is based on an existing issue, please reference that issue in the pull request comment using `Closes #x` where X is the issue number.
 
 ### :keyboard: Activity: Updating configuration instructions
 
