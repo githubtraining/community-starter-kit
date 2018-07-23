@@ -77,7 +77,7 @@ steps:
     link: https://github.com/{{ user.username }}/{{ course.template.name }}/pulls
     actions:
       - type: getFileContents
-        filename: getting-started.md
+        filename: docs/getting-started.md
         action_id: file
       - type: gate
         left: '/CONFIGS PLACEHOLDER/'
