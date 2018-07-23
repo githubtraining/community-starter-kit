@@ -9,7 +9,7 @@ template:
   url: https://github.com/githubtraining/community-starter-kit-template.git
 before:
   - type: createIssue
-    title: Preparing your project for open source
+    title: Preparing Mona's project for open source
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
