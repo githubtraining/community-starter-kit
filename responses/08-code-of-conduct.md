@@ -6,7 +6,7 @@ Can you help her grab the markdown version from [the contributor covenant websit
 
 ### :keyboard: Activity: Add a Code of Conduct
 
-1. Copy the markdown text from the latest version on [the contributor covenant website](https://www.contributor-covenant.org/version/1/4/code-of-conduct.md)
+1. Copy the markdown text from the latest version on [the contributor covenant website](https://www.contributor-covenant.org/)
 1. Access the **Files changed** tab in this pull request
 1. Click the :pencil2: pencil icon to edit the `code-of-conduct.md` file
 1. Paste the markdown formatted text into the file
