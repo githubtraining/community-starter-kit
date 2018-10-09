@@ -6,7 +6,7 @@ tags:
   - Open Source
 template:
   name: community-starter-kit
-  url: https://github.com/githubtraining/community-starter-kit-template.git
+  repo: community-starter-kit-template
 before:
   - type: createIssue
     title: Preparing Mona's project for open source
