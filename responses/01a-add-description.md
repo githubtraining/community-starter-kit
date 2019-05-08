@@ -2,9 +2,9 @@
 
 First, let's focus on helping others understand Mona's project. After all, people are most likely to contribute to projects they use, so `no users === no contributors`.
 
-Users should be able to understand the project at a glance, so let's start by adding a repository description and creating a README.
+Users should be able to understand the project at a glance, so let's start by adding a repository description and creating a `README.md`.
 
-Mona is working on a first draft of the README. Can you help by adding a description to the repository? 
+Mona is working on a first draft of the `README.md`. Can you help by adding a description to the repository? 
 
 ### :keyboard: Activity: Adding a repository description
 
@@ -20,8 +20,7 @@ Mona is working on a first draft of the README. Can you help by adding a descrip
 > **Protip** If you are working in a public repository, GitHub has created a helpful [Community profile]({{ repoUrl }}/community-starter-kit/community) in the insights tab. The Community profile has helpful quick-links to complete many of the tasks in this course.
 
 <hr>
-<h3 align="center">Watch for my response below</h3>
+<h3 align="center">Watch for my response below.</h3>
 
 > :robot: I'm waiting for you to close this issue
-
 > :robot: Sometimes I respond too fast for the page to update! If you perform an expected action and don't see a response from me, wait a few seconds and refresh the page for your next steps.

@@ -6,11 +6,11 @@ Mona would like to add a few topics to this repository. Can you help her out?
 
 ### :keyboard: Activity: Adding Topics to the repository
 
-1. On the **Code** tab, click the **Add topics** option located under the repository description
-1. In the **Topics** field, type the first topic `Probot`. GitHub might also have some **Suggested** topics for this repository
-1. After entering a topic (or topics), click **Done**
+1. On the **Code** tab, click the **Add topics** option located under the repository description.
+1. In the **Topics** field, type the first topic `Probot`. GitHub might also have some **Suggested** topics for this repository.
+1. After entering a topic (or topics), click **Done**.
 
 <hr>
-<h3 align="center">Close this issue when finished</h3>
+<h3 align="center">Close this issue when finished.</h3>
 
 > :robot: I'm waiting for you to close this issue

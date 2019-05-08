@@ -16,14 +16,14 @@ These initial labels are awesome, but most maintainers add (or delete) labels to
 
 ### :keyboard: Activity: Adding labels to your repository
 
-1. On the top right side of this pull request view, find the section titled: "Labels"
-1. Click the gear icon
-1. Notice the text field at the top says **Filter or create labels**
-1. Type the name of the label you would like to create
-1. You will see a selection that reads "Create a new label", select that option
-1. Customize your label with a description and color
-1. Click **Save**
-1. Add your new label to this pull request!
+1. On the top right side of this pull request view, find the section titled: "Labels".
+1. Click the gear icon.
+1. Notice the text field at the top says **Filter or create labels**.
+1. Type the name of the label you would like to create.
+1. You will see a selection that reads "Create a new label", select that option.
+1. Customize your label with a description and color.
+1. Click **Save**.
+1. Add your new label to this pull request.
 
 <hr>
-<h3 align="center">Watch below for my response</h3>
+<h3 align="center">Watch below for my response.</h3>
