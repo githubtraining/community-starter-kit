@@ -30,7 +30,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Edit the README
-    description: Describe the purpose and benefits of your project
+    description: Describe the purpose and benefits of your project.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -55,7 +55,7 @@ steps:
         with: 02c-readme-done.md
 
   - title: Merge the README
-    description: Merge the pull request to add the README
+    description: Merge the pull request to add the README.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -72,7 +72,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Create user documentation
-    description: Support your users with great documentation
+    description: Support your users with great documentation.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -90,7 +90,7 @@ steps:
         with: 03b-docs-done.md
 
   - title: Merge the user documentation
-    description: Merge the pull request to add the user documentation
+    description: Merge the pull request to add the user documentation.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -107,7 +107,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add an issue template
-    description: Use issue templates to gather useful information from contributors
+    description: Use issue templates to gather useful information from contributors.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -126,7 +126,7 @@ steps:
         with: 04b-template-done.md
 
   - title: Merge the issue template
-    description: Merge the pull request to add your issue template
+    description: Merge the pull request to add your issue template.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -144,7 +144,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add a CONTRIBUTING guide
-    description: A CONTRIBUTING guide is used to tell others how they can help
+    description: A CONTRIBUTING guide is used to tell others how they can help.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -162,7 +162,7 @@ steps:
         with: 06-add-labels.md
 
   - title: Add custom labels to the project
-    description: Create the labels described in the CONTRIBUTING guide and add them to this pull request
+    description: Create the labels described in the CONTRIBUTING guide and add them to this pull request.
     event: pull_request.labeled
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -171,7 +171,7 @@ steps:
       - type: removeBranchProtection
 
   - title: Merge the CONTRIBUTING guide
-    description: Merge the pull request to add your contributing guide
+    description: Merge the pull request to add your contributing guide.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -188,7 +188,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add the license
-    description: Add a license to your open source project
+    description: Add a license to your open source project.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -206,7 +206,7 @@ steps:
         with: 07b-license-done.md
 
   - title: Merge the license
-    description: Merge the pull request to add your license
+    description: Merge the pull request to add your license.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -223,7 +223,7 @@ steps:
           prURL: '%actions.pr.data.html_url%'
 
   - title: Add the Code of Conduct
-    description: Add a Code of Conduct to set expectations for behavior in your project
+    description: Add a Code of Conduct to set expectations for behavior in your project.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -241,7 +241,7 @@ steps:
         with: 08b-code-done.md
 
   - title: Merge the Code of Conduct
-    description: Merge the pull request to add your Code of Conduct
+    description: Merge the pull request to add your Code of Conduct.
     event: pull_request.closed
     link: '{{ repoUrl }}/pulls'
     actions:
@@ -257,7 +257,7 @@ steps:
           issueURL: '%actions.issue.data.html_url%'
 
   - title: Help users find the project
-    description: Add repository topics to help GitHub categorize and recommend your project
+    description: Add repository topics to help GitHub categorize and recommend your project.
     event: issues.closed
     link: '{{ repoUrl }}/issues'
     actions:
