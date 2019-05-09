@@ -8,7 +8,7 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 
 ### :keyboard: Activity: Adding a repository description
 
-1. Access the [**Code**]({{ repoUrl }} }}/community-starter-kit/) tab of your project.
+1. Access the [**Code**]({{ repoUrl }}/community-starter-kit/) tab of your project.
 2. Click the **Edit** button located on the right side of the screen (above the green **Clone or download** button).
 3. Enter a description for your project in the **Description** field.
 4. (Optional) If you have a website related to your project you can add it in the **Website** field.
