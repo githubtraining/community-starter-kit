@@ -22,5 +22,4 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 <hr>
 <h3 align="center">Watch for my response below.</h3>
 
-> :robot: I'm waiting for you to close this issue
 > :robot: Sometimes I respond too fast for the page to update! If you perform an expected action and don't see a response from me, wait a few seconds and refresh the page for your next steps.
