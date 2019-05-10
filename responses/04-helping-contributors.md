@@ -14,16 +14,17 @@ When you add an issue template and pull request template to your repository, pro
 
 ### Creating multiple templates
 
-In open source projects, templates make it easy for new contributors to create bug reports, suggest new features, or contribute changes. Mona has already created an issue template for new, can you put one together for bugs?
+In open source projects, templates make it easy for new contributors to create bug reports, suggest new features, or contribute changes. Mona has already created an issue template for new issues. Can you put one together for bugs?
 
 ### :keyboard: Activity: Adding an issue template
 
-1. Access the [**Code**](https://github.com/{{ user.username }}/community-starter-kit/) tab of your project
-1. Be sure to select the `add-issue-template` branch from the branch dropdown
-1. Click the **Create new file** button
-1. Create a file in the `.github/ISSUE_TEMPLATE` folder named `bug-report.md` (you can do this by typing `.github/ISSUE_TEMPLATE/bug-report.md` in the file name field)
-1. Include headings and placeholders for the information you want to collect when a user creates a bug report
-1. After editing the template file, scroll down and click the **Commit new file**
+1. Access the [**Code**]({{ repoUrl }}) tab of your project.
+2. Be sure to select the `add-issue-template` branch from the branch dropdown.
+3. Click the **Create new file** button.
+4. Create a file in the `.github/ISSUE_TEMPLATE` folder named `bug-report.md`. 
+   - _Note: you can do this by typing `.github/ISSUE_TEMPLATE/bug-report.md` in the file name field._
+5. Include headings and placeholders for the information you want to collect when a user creates a bug report.
+6. After editing the template file, scroll down and click the **Commit new file**.
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">Watch below for my response.</h3>

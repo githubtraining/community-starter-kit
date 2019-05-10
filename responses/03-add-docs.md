@@ -1,6 +1,6 @@
 ## Step 4: Create user documentation
 
-Well written user documentation is the key to a great user experience. Experts say, "if a user can't figure out how to use your project in less than an hour, they will move on." It pays to attract a few technical writers to your project :wink:
+Well written user documentation is the key to a great user experience. Experts say, "if a user can't figure out how to use your project in less than an hour, they will move on." It pays to attract a few technical writers to your project. :wink:
 
 <details>
 <summary>Where to create your documentation</summary>
@@ -29,10 +29,10 @@ Will you help Mona ensure the documentation covers these minimum topics?
 
 ### :keyboard: Activity: Creating user documentation
 
-1. Access the **Files changed** tab in this pull request
-1. Click the :pencil2: pencil icon to edit the `getting-started.md` document
-1. Find the text marked CONFIGS PLACEHOLDER and add some example welcome messages that may be helpful to new users
-1. After editing the `getting-started.md` file, scroll down and click the **Commit changes** button.
+1. Access the **Files changed** tab in this pull request.
+2. Click the icon to the right of the file to edit the `getting-started.md` document.
+3. Find the text marked **CONFIGS PLACEHOLDER** and add some example welcome messages that may be helpful to new users.
+4. After editing the `getting-started.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my next comment</h3>
+<h3 align="center">Watch below for my next comment.</h3>

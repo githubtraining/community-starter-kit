@@ -10,10 +10,10 @@ Like the user facing documentation, the contributing guidelines for every projec
 
 ### :keyboard: Activity: Adding CONTRIBUTING guidelines
 
-1. Access the **Files changed** tab in this pull request
-1. Click the :pencil2: pencil icon to edit the CONTRIBUTING.md file
-1. Find the text marked DESCRIPTION PLACEHOLDER and add a description for each label
-1. After editing the CONTRIBUTING file, scroll down and click the **Commit changes** button.
+1. Access the **Files changed** tab in this pull request.
+2. Click the icon to the right of the file to edit the `CONTRIBUTING.md` file.
+3. Find the text marked **DESCRIPTION PLACEHOLDER** and add a description for each label.
+4. After editing the `CONTRIBUTING.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">Watch below for my response.</h3>

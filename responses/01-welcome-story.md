@@ -27,4 +27,4 @@ In this course, you will work with Mona to:
 We want to thank the maintainers of [**welcome-bot**](https://github.com/behaviorbot/welcome), an actual Probot app that welcomes new users, for graciously allowing us to use their awesome app for this course. After your open source project is up and running, we recommend you check out **welcome** and some of the other bots created by [the developers of behaviorbot](https://github.com/behaviorbot).
 
 <hr>
-<h3 align="center">Keep reading below to find your first task</h3>
+<h3 align="center">Keep reading below to find your first task.</h3>
