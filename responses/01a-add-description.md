@@ -15,7 +15,13 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 5. Click the **Save** button.
 6. When you are finished, go ahead and **close this issue**.
 
-{% if not GHE_HOST %}
+{% if GHE_HOST %}
+
+<hr>
+
+> **Protip** If you're planning on publishing your repository on GitHub.com, the [Community profile](https://help.github.com/en/articles/about-community-profiles-for-public-repositories)  has helpful quick-links to complete many of the tasks in this course.
+
+{% else %}
 
 <hr>
 
