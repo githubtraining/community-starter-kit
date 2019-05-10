@@ -15,9 +15,13 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 5. Click the **Save** button.
 6. When you are finished, go ahead and **close this issue**.
 
+{% if not GHE_HOST %}
+
 <hr>
 
 > **Protip** If you are working in a public repository, GitHub has created a helpful [Community profile]({{ repoUrl }}/community) in the insights tab. The Community profile has helpful quick-links to complete many of the tasks in this course.
+
+{% endif %}
 
 <hr>
 <h3 align="center">Watch for my response below.</h3>
