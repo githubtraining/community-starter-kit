@@ -11,8 +11,7 @@ In this course, you will learn about the informal standards the community has ad
 
 ## What you'll build
 
-- You'll build a kit with your own, specialized documents and processes for launching your own community. 
-- This kit will be a repository, and a published GitHub Pages site for easier sharing and use.
+- You'll build a kit with your own, specialized documents and processes for launching your own community.
 
 ## Prerequisites
 
