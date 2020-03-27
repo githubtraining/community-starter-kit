@@ -3,4 +3,4 @@ Great work setting your repository description, @{{ user.username }}! Mona has f
 I'll close this issue since we don't need it anymore!
 
 <hr>
-<h3 align="center">Go to <a href="{{ store.firstPrUrl }}">the pull request</a>.</h3>
+<h3 align="center">Go to <a href="{{ store.readmePrUrl }}">the pull request</a>.</h3>
