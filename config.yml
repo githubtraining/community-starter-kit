@@ -207,7 +207,7 @@ steps:
             data:
               expected: 'open a pull request titled **Update issue templates** as described in [this issue]({{ store.templatesIssueUrl }})'
       - type: closeIssue
-        issue: {{ store.templatesIssueNumber }}
+        issue: '{{ store.templatesIssueNumber }}'
         store:
           templatesPrUrl: {{ payload.pull_request.html_url }}
           templatesPrNumber: {{ payload.pull_request.number }}
