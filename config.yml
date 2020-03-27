@@ -14,8 +14,10 @@ before:
       - 01a-add-description.md
     store:
       firstIssueNumber: '%result.data.number%'
+      firstIssueUrl: '%result.data.html_url%'
       repoUrl: '%payload.repository.html_url%'
       repoFullName: '%payload.repository.full_name%'
+  - type: updateBranchProtection
 
 # Repo artifacts
 # ---
@@ -33,7 +35,7 @@ before:
 steps:
   - title: Add a repository description
     description: Welcome users to the repository with a descriptive README
-    link: '{{ repoUrl }}/issues/1'
+    link: '{{ store.firstIssueUrl }}'
     event: repository.edited
     actions:
       - type: createPullRequest
@@ -64,7 +66,7 @@ steps:
   - title: Edit the README
     description: Describe the purpose and benefits of your project.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.readmePrUrl }}'
     actions:
       - type: gate
         left: '%store.readmePrNumber%'
@@ -98,7 +100,7 @@ steps:
   - title: Merge the README
     description: Merge the pull request to add the README.
     event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.readmePrUrl }}'
     actions:
       - type: gate
         every: true
@@ -125,7 +127,7 @@ steps:
   - title: Create user documentation
     description: Support your users with great documentation.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.docsPrUrl }}'
     actions:
       - type: getFileContents
         filename: docs/getting-started.md
