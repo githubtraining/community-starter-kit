@@ -340,15 +340,27 @@ steps:
         body: 07-license-suggestion.md
         file: LICENSE.md
         position: 3
-        pullRequest: '{{store.lincePrNumber}}'
+        pullRequest: '{{store.lincesePrNumber}}'
       - type: respond
         with: 06n-next.md
 
   - title: Add the license
     description: Add a license to your open source project.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.lincesePrUrl }}'
     actions:
+      - type: gate
+        every: true
+        gates:
+          - left: '{{store.lincesePrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `LICENSE.md` in [this pull request]({{ store.lincesePrUrl }})'
       - type: getFileContents
         filename: LICENSE.md
         action_id: file
@@ -359,8 +371,11 @@ steps:
         else:
           type: respond
           with: 07a-replace-placeholders.md
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 07b-license-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.lincesePrNumber }}/files#submit-review'
 
   - title: Merge the license
     description: Merge the pull request to add your license.
@@ -368,7 +383,17 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.lincesePrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request]({{ store.lincesePrUrl }})'
       - type: createPullRequest
         head: add-code
         title: Add a Code of Conduct
