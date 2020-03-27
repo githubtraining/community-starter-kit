@@ -101,6 +101,7 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
+        every: true
         gates:
           - left: '%store.readmePrNumber%'
             operator: ===
