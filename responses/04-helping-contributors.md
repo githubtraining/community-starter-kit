@@ -22,7 +22,7 @@ In open source projects, templates make it easy for new contributors to create b
 
 ### :keyboard: Activity: Adding an issue template
 
-https://github.com/hectorsector/community-starter-kit/issues/templates/edit
+![GIF showing a click on the repository's settings tab, scrolling down, clicking on set up templates, selecting a bug report template, a feature request template, and a custom template. Then, clicking on propose changes, changing the branch name to templates, and then committing. Finally, a new PR shows up.](https://user-images.githubusercontent.com/16547949/77784943-c4760a00-7031-11ea-90e0-a8f241ba6683.gif)
 
 1. Access this [quicklink for templates]({{ repoUrl }}/issues/templates/edit) or manually navigate to it as follows:
    - Click on your repository's [**Settings**]({{ repoUrl }}/settings) tab.
@@ -32,8 +32,7 @@ https://github.com/hectorsector/community-starter-kit/issues/templates/edit
 1. Select the bug report template.
    - Feel free to add more than one template, or create custom templates.
 1. Click **Propose changes**
-1. Enter a commit message, choose a name for your branch, and click **Commit changes**. GitHub will create a new pull request for you.
-
+1. Enter a commit message, choose a name for your branch, and click **Commit changes**. GitHub will create a new pull request titled **Update issue templates** for you.
 
 <hr>
-<h3 align="center">I'll respond when I detect a new pull request has been created.</h3>
+<h3 align="center">I'll respond when I detect a new pull request titled <b>Update issue templates</b>.</h3>

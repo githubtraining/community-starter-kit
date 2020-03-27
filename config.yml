@@ -194,9 +194,23 @@ steps:
 
   - title: Add an issue template
     description: Use issue templates to gather useful information from contributors.
-    event: pull_request.synchronize
+    event: pull_request.opened
     link: '{{ store.templatesIssueUrl }}'
     actions:
+      - type: gate
+        left: '{{payload.pull_request.title}}'
+        operator: ===
+        right: Update issue templates
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'open a pull request titled **Update issue templates** as described in [this issue]({{ store.templatesIssueUrl }})'
+      - type: closeIssue
+        issue: {{ store.templatesIssueNumber }}
+        store:
+          templatesPrUrl: {{ payload.pull_request.html_url }}
+          templatesPrNumber: {{ payload.pull_request.number }}
       - type: getTree
         action_id: tree
         recursive: true
@@ -204,7 +218,7 @@ steps:
       - type: gate
         left: '%actions.tree.data.tree%'
         operator: includes
-        right: path:/^.github/ISSUE_TEMPLATE/bug-report.md$/
+        right: path:/^.github/ISSUE_TEMPLATE/bug_report.md$/
         else:
           type: respond
           with: 04a-template-location.md
