@@ -249,10 +249,19 @@ steps:
         head: add-contrib-guide
         title: Add a contributing guide
         body: 05-contributing-guide.md
+        data:
+          contribFileUrl: '{{ store.repoUrl }}/edit/add-contrib-guide/CONTRIBUTING.md'
         store:
           contribPrUrl: '{{ result.data.html_url }}'
           contribPrNumber: '{{ result.data.number }}'
-      - type: updateBranchProtection
+      - type: createPullRequestComment
+        body: 05-contributing-suggestion.md
+        file: CONTRIBUTING.md
+        start_line: 13
+        start_side: 'LEFT'
+        line: 18
+        side: 'RIGHT'
+        pullRequest: '{{store.contribPrNumber}}'
       - type: respond
         with: 04n-next.md
 
@@ -281,7 +290,6 @@ steps:
     actions:
       - type: respond
         with: 06a-label-done.md
-      - type: removeBranchProtection
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide.
