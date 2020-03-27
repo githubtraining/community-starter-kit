@@ -31,7 +31,6 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 {% endif %}
 
 <hr>
-<h3 align="center">Watch for my response below.</h3>
+<h3 align="center">I will respond in this issue when you've edited your repository description.</h3>
 
-> :robot: I will respond in this issue when you've edited your repository description.
 > :robot: Sometimes I respond too fast for the page to update! If you perform an expected action and don't see a response from me, wait a few seconds and refresh the page for your next steps.

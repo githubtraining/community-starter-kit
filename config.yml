@@ -52,10 +52,10 @@ steps:
         file: README.md
         position: 11
         pullRequest: '%store.firstPrNumber%'
-      - type: closeIssue
-        issue: '%store.firstIssueNumber%'
       - type: respond
         with: 01n-next.md
+        issue: '%store.firstIssueNumber%'
+      - type: closeIssue
         issue: '%store.firstIssueNumber%'
 
   - title: Edit the README
@@ -63,6 +63,15 @@ steps:
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
+      - type: gate
+        left: '%store.firstPrNumber%'
+        operator: ===
+        right: '%payload.pull_request.number%'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `README.md` in [this pull request](%store.firstPrUrl%)'
       - type: getFileContents
         filename: README.md
         action_id: readme

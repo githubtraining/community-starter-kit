@@ -1,5 +1,5 @@
 Write a great description here or accept this suggested change.
 
 ```suggestion
-An awesome Probot app to welcome people.
+A GitHub App built with [probot](https://github.com/probot/probot) that celebrates new user activity within your repository.
 ```
