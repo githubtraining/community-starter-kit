@@ -94,8 +94,11 @@ steps:
         else:
           type: respond
           with: 02b-readme-features.md
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 02c-readme-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.readmePrNumber }}/files#submit-review'
 
   - title: Merge the README
     description: Merge the pull request to add the README.
