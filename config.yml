@@ -12,21 +12,24 @@ before:
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
+    store:
+      firstIssueNumber: '%result.data.number%'
+
 steps:
   - title: Add a repository description
     description: Welcome users to the repository with a descriptive README
     link: '{{ repoUrl }}/issues/1'
-    event: issues.closed
+    event: repository.edited
     actions:
       - type: createPullRequest
         title: Add a repository description
         body: 02-create-readme.md
         head: add-readme
-        action_id: pr
+        store:
+          firstPrUrl: '%result.data.html_html%'
       - type: respond
         with: 01n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
+        issue: '%store.firstIssueNumber%'
 
   - title: Edit the README
     description: Describe the purpose and benefits of your project.
