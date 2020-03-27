@@ -209,8 +209,8 @@ steps:
       - type: closeIssue
         issue: '{{ store.templatesIssueNumber }}'
         store:
-          templatesPrUrl: {{ payload.pull_request.html_url }}
-          templatesPrNumber: {{ payload.pull_request.number }}
+          templatesPrUrl: '{{ payload.pull_request.html_url }}'
+          templatesPrNumber: '{{ payload.pull_request.number }}'
       - type: getTree
         action_id: tree
         recursive: true
