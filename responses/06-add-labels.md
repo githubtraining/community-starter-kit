@@ -26,4 +26,4 @@ These initial labels are awesome, but most maintainers add (or delete) labels to
 1. Add your new label to this pull request.
 
 <hr>
-<h3 align="center">Watch below for my response.</h3>
+<h3 align="center">I'll respond when I detect a label on this pull request.</h3>

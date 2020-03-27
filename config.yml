@@ -331,9 +331,16 @@ steps:
         head: add-license
         title: Add a license
         body: 07-add-license.md
+        data:
+          contribFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
         store:
           licensePrUrl: '{{ result.data.html_url }}'
           licencePrNumber: '{{ result.data.number }}'
+      - type: createPullRequestComment
+        body: 07-license-suggestion.md
+        file: LICENSE.md
+        position: 3
+        pullRequest: '{{store.lincePrNumber}}'
       - type: respond
         with: 06n-next.md
 
