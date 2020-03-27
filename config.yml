@@ -335,39 +335,36 @@ steps:
           licenseFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
         store:
           licensePrUrl: '{{ result.data.html_url }}'
-          lincesePrNumber: '{{ result.data.number }}'
+          licensePrNumber: '{{ result.data.number }}'
       - type: createPullRequestComment
         body: 07-license-suggestion.md
         file: LICENSE.md
         position: 3
-        pullRequest: '{{store.lincesePrNumber}}'
+        pullRequest: '{{store.licensePrNumber}}'
       - type: respond
         with: 06n-next.md
 
   - title: Add the license
     description: Add a license to your open source project.
     event: pull_request.synchronize
-    link: '{{ store.lincesePrUrl }}'
+    link: '{{ store.licensePrUrl }}'
     actions:
       - type: gate
-        every: true
-        gates:
-          - left: '{{store.lincesePrNumber}}'
-            operator: ===
-            right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+        left: '{{store.licensePrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'make a commit to `LICENSE.md` in [this pull request]({{ store.lincesePrUrl }})'
+              expected: 'make a commit to `LICENSE.md` in [this pull request]({{ store.licensePrNumber }})'
       - type: getFileContents
         filename: LICENSE.md
         action_id: file
       - type: gate
         left: '/\[year\]|\[fullname\]/'
         operator: '!test'
-        right: '%actions.file%'
+        right: '{{actions.file}}'
         else:
           type: respond
           with: 07a-replace-placeholders.md
@@ -375,7 +372,7 @@ steps:
       - type: respond
         with: 07b-license-done.md
         data:
-          approveLink: '{{ store.repoUrl }}/pull/{{ store.lincesePrNumber }}/files#submit-review'
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.licensePrNumber }}/files#submit-review'
 
   - title: Merge the license
     description: Merge the pull request to add your license.
@@ -385,7 +382,7 @@ steps:
       - type: gate
         every: true
         gates:
-          - left: '{{store.lincesePrNumber}}'
+          - left: '{{store.licensePrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
           - left: '{{payload.pull_request.merged}}'
@@ -393,7 +390,7 @@ steps:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.lincesePrUrl }})'
+              expected: 'merge [this pull request]({{ store.licensePrNumber }})'
       - type: createPullRequest
         head: add-code
         title: Add a Code of Conduct
