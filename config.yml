@@ -121,6 +121,13 @@ steps:
         store:
           docsPrUrl: '%result.data.html_url%'
           docsPrNumber: '%result.data.number%'
+        data:
+          docsFileUrl: '%store.repoUrl%/edit/add-docs/docs/getting-strated.md'
+      - type: createPullRequestComment
+        body: 03-docs-suggested.md
+        file: docs/getting-started.md
+        position: 38
+        pullRequest: '%store.docsPrNumber%'
       - type: respond
         with: 02n-next.md
 

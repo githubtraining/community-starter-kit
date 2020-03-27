@@ -22,7 +22,7 @@ Mona's `README.md` is missing some of the information above. Will you help Mona 
 
 You can follow the manual steps below, or accept the [suggested changes](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) in the following comments.
 
-1. Edit [`README.md`]({{ readmeUrl }}) on this branch.
+1. Edit [`README.md`]({{ readmeUrl }}) on this branch, or manually change it in the **Files Changed** tab.
 1. Find the two placeholder texts labeled **DESCRIPTION PLACEHOLDER** and **FEATURES PLACEHOLDER**.
 1. Replace each placeholder with some bulleted information that may be helpful to new users.
 1. After editing the `README.md` file, scroll down and click the **Commit changes** button.

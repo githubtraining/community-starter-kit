@@ -29,10 +29,12 @@ Will you help Mona ensure the documentation covers these minimum topics?
 
 ### :keyboard: Activity: Creating user documentation
 
-1. Access the **Files changed** tab in this pull request.
-2. Click the icon to the right of the file to edit the `getting-started.md` document.
-3. Find the text marked **CONFIGS PLACEHOLDER** and add some example welcome messages that may be helpful to new users.
-4. After editing the `getting-started.md` file, scroll down and click the **Commit changes** button.
+You can follow the manual steps below, or accept the [suggested change](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) in the following comment.
+
+1. Edit [`docs/getting-started.md`]({{ docsFileUrl }}) on this branch, or manually edit it in the **Files Changed** tab.
+1. Find the placeholder text marked **CONFIGS PLACEHOLDER**.
+1. Replace the placeholder with some example welcome messages that may be helpful to new users.
+4. After editing the `docs/getting-started.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my next comment.</h3>
+<h3 align="center">I'll respond when I detect a commit on this branch.</h3>
