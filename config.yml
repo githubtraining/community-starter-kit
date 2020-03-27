@@ -332,7 +332,7 @@ steps:
         title: Add a license
         body: 07-add-license.md
         data:
-          contribFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
+          licenseFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
         store:
           licensePrUrl: '{{ result.data.html_url }}'
           lincesePrNumber: '{{ result.data.number }}'
