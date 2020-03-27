@@ -43,10 +43,10 @@ steps:
         body: 02-create-readme.md
         head: add-readme
         store:
-          readmePrUrl: '%result.data.html_url%'
-          readmePrNumber: '%result.data.number%'
+          readmePrUrl: '{{ result.data.html_url }}'
+          readmePrNumber: '{{ result.data.number }}'
         data:
-          readmeUrl: '%store.repoUrl%/edit/add-readme/README.md'
+          readmeUrl: '{{ store.repoUrl }}/edit/add-readme/README.md'
       - type: createPullRequestComment
         body: 02-description-suggestion.md
         file: README.md
