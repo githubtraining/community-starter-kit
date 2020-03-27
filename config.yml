@@ -24,8 +24,8 @@ before:
 # 1. (Issue) Preparing Mona's project for open source
 #     firstIssueNumber
 # 2. (PR) Create a README
-#     firstPrUrl
-#     firstPrNumber
+#     readmePrUrl
+#     readmePrNumber
 
 steps:
   - title: Add a repository description
@@ -38,20 +38,20 @@ steps:
         body: 02-create-readme.md
         head: add-readme
         store:
-          firstPrUrl: '%result.data.html_url%'
-          firstPrNumber: '%result.data.number%'
+          readmePrUrl: '%result.data.html_url%'
+          readmePrNumber: '%result.data.number%'
         data:
           readmeUrl: '%store.repoUrl%/edit/add-readme/README.md'
       - type: createPullRequestComment
         body: 02-description-suggestion.md
         file: README.md
         position: 5
-        pullRequest: '%store.firstPrNumber%'
+        pullRequest: '%store.readmePrNumber%'
       - type: createPullRequestComment
         body: 02-features-suggestion.md
         file: README.md
         position: 11
-        pullRequest: '%store.firstPrNumber%'
+        pullRequest: '%store.readmePrNumber%'
       - type: respond
         with: 01n-next.md
         issue: '%store.firstIssueNumber%'
@@ -64,14 +64,14 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%store.firstPrNumber%'
+        left: '%store.readmePrNumber%'
         operator: ===
         right: '%payload.pull_request.number%'
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'make a commit to `README.md` in [this pull request](%store.firstPrUrl%)'
+              expected: 'make a commit to `README.md` in [this pull request](%store.readmePrUrl%)'
       - type: getFileContents
         filename: README.md
         action_id: readme
@@ -98,12 +98,20 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        gates:
+          - left: '%store.readmePrNumber%'
+            operator: ===
+            right: '%payload.pull_request.number%'
+          - left: '%payload.pull_request.merged%'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request](%store.readmePrUrl%)'
       - type: createPullRequest
         head: add-docs
         title: Add documentation
         body: 03-add-docs.md
-        action_id: pr
       - type: respond
         with: 02n-next.md
         data:
