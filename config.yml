@@ -125,7 +125,7 @@ steps:
           docsPrUrl: '%result.data.html_url%'
           docsPrNumber: '%result.data.number%'
         data:
-          docsFileUrl: '%store.repoUrl%/edit/add-docs/docs/getting-strated.md'
+          docsFileUrl: '%store.repoUrl%/edit/add-docs/docs/getting-started.md'
       - type: createPullRequestComment
         body: 03-docs-suggested.md
         file: docs/getting-started.md
