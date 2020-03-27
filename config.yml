@@ -41,7 +41,7 @@ steps:
           firstPrUrl: '%result.data.html_url%'
           firstPrNumber: '%result.data.number%'
         data:
-          readmeUrl: '%repoUrl%/edit/add-readme/README.md'
+          readmeUrl: '%store.repoUrl%/edit/add-readme/README.md'
       - type: createPullRequestComment
         body: 02-description-suggestion.md
         file: README.md
