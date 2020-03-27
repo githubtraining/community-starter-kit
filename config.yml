@@ -194,7 +194,9 @@ steps:
 
   - title: Add an issue template
     description: Use issue templates to gather useful information from contributors.
-    event: pull_request.opened
+    event: 
+      - pull_request.opened
+      - pull_request.synchronize
     link: '{{ store.templatesIssueUrl }}'
     actions:
       - type: gate
@@ -206,19 +208,19 @@ steps:
             with: e-pr.md
             data:
               expected: 'open a pull request titled **Update issue templates** as described in [this issue]({{ store.templatesIssueUrl }})'
-      - type: closeIssue
-        issue: '{{ store.templatesIssueNumber }}'
       - type: getTree
         action_id: tree
         recursive: true
-        sha: '%payload.pull_request.head.sha%'
+        sha: '{{payload.pull_request.head.sha}}'
       - type: gate
-        left: '%actions.tree.data.tree%'
+        left: '{{actions.tree.data.tree}}'
         operator: includes
         right: path:/^.github/ISSUE_TEMPLATE/bug_report.md$/
         else:
           type: respond
           with: 04a-template-location.md
+      - type: closeIssue
+        issue: '{{ store.templatesIssueNumber }}'
         store:
           templatesPrUrl: '{{ payload.pull_request.html_url }}'
           templatesPrNumber: '{{ payload.pull_request.number }}'
@@ -231,7 +233,7 @@ steps:
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
     event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.templatesPrUrl }}'
     actions:
       - type: gate
         every: true
@@ -249,17 +251,17 @@ steps:
         head: add-contrib-guide
         title: Add a contributing guide
         body: 05-contributing-guide.md
-        action_id: pr
+        store:
+          contribPrUrl: '{{ result.data.html_url }}'
+          contribPrNumber: '{{ result.data.number }}'
       - type: updateBranchProtection
       - type: respond
         with: 04n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add a CONTRIBUTING guide
     description: A CONTRIBUTING guide is used to tell others how they can help.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.contribPrlUrl }}'
     actions:
       - type: getFileContents
         filename: CONTRIBUTING.md
