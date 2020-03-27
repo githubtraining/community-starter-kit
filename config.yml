@@ -26,6 +26,9 @@ before:
 # 2. (PR) Create a README
 #     readmePrUrl
 #     readmePrNumber
+# 3. (PR) Add documentation
+#     docsPrUrl
+#     docsPrNumber
 
 steps:
   - title: Add a repository description
@@ -112,10 +115,11 @@ steps:
         head: add-docs
         title: Add documentation
         body: 03-add-docs.md
+        store:
+          docsPrUrl: '%result.data.html_url%'
+          docsPrNumber: '%result.data.number%'
       - type: respond
         with: 02n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Create user documentation
     description: Support your users with great documentation.
