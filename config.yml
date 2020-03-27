@@ -224,11 +224,9 @@ steps:
         store:
           templatesPrUrl: '{{ payload.pull_request.html_url }}'
           templatesPrNumber: '{{ payload.pull_request.number }}'
-      - type: requestReviewFromRegistrant
-      - type: respond
-        with: 04b-template-done.md
-        data:
-          approveLink: '{{ store.repoUrl }}/pull/{{ store.readmePrNumber }}/files#submit-review'
+      - type: createReview
+        body: 04b-template-done.md
+        event: APPROVE
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
