@@ -254,14 +254,24 @@ steps:
         store:
           contribPrUrl: '{{ result.data.html_url }}'
           contribPrNumber: '{{ result.data.number }}'
-      - type: createPullRequestComment
-        body: 05-contributing-suggestion.md
-        file: CONTRIBUTING.md
+          headSha: '{{ result.data.head.sha }}'
+      - type: octokit
+        method: pullRequests.createComment
+        owner: '{{ payload.repository.owner.login }}'
+        repo: '{{ payload.repository.name }}'
+        number: '{{store.contribPrNumber}}'
+        commit_id: '{{ store.headSha }}'
+        path: 'CONTRIBUTING.md'
+        body: |
+          Write a great description for each label here or accept this suggested change.
+
+          ```suggestion
+          A GitHub App built with [probot](https://github.com/probot/probot) that celebrates new user activity within your repository.
+          ```
         start_line: 13
         start_side: 'LEFT'
         line: 18
         side: 'RIGHT'
-        pullRequest: '{{store.contribPrNumber}}'
       - type: respond
         with: 04n-next.md
 
