@@ -3,4 +3,4 @@ There are just a few more things left to do. First, you need to let the world kn
 Mona has done a ton of research on licenses, let's see which one she has selected.
 
 <hr>
-<h3 align="center">Go to the pull request <a href="{{ prURL }}">here</a>.</h3>
+<h3 align="center">Go to the pull request <a href="{{ store.licensePrUrl }}">here</a>.</h3>

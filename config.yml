@@ -313,19 +313,29 @@ steps:
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide.
     event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.contribPrlUrl }}'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.contribPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request]({{ store.contribPrlUrl }})'
       - type: createPullRequest
         head: add-license
         title: Add a license
         body: 07-add-license.md
-        action_id: pr
+        store:
+          licensePrUrl: '{{ result.data.html_url }}'
+          licencePrNumber: '{{ result.data.number }}'
       - type: respond
         with: 06n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add the license
     description: Add a license to your open source project.
