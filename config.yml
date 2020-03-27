@@ -335,7 +335,7 @@ steps:
           contribFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
         store:
           licensePrUrl: '{{ result.data.html_url }}'
-          licencePrNumber: '{{ result.data.number }}'
+          lincesePrNumber: '{{ result.data.number }}'
       - type: createPullRequestComment
         body: 07-license-suggestion.md
         file: LICENSE.md
