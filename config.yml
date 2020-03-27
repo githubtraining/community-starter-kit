@@ -13,10 +13,10 @@ before:
     comments:
       - 01a-add-description.md
     store:
-      firstIssueNumber: '%result.data.number%'
-      firstIssueUrl: '%result.data.html_url%'
-      repoUrl: '%payload.repository.html_url%'
-      repoFullName: '%payload.repository.full_name%'
+      firstIssueNumber: '{{result.data.number}}'
+      firstIssueUrl: '{{result.data.html_url}}'
+      repoUrl: '{{payload.repository.html_url}}'
+      repoFullName: '{{payload.repository.full_name}}'
   - type: updateBranchProtection
 
 # Repo artifacts
@@ -51,17 +51,17 @@ steps:
         body: 02-description-suggestion.md
         file: README.md
         position: 5
-        pullRequest: '%store.readmePrNumber%'
+        pullRequest: '{{store.readmePrNumber}}'
       - type: createPullRequestComment
         body: 02-features-suggestion.md
         file: README.md
         position: 11
-        pullRequest: '%store.readmePrNumber%'
+        pullRequest: '{{store.readmePrNumber}}'
       - type: respond
         with: 01n-next.md
-        issue: '%store.firstIssueNumber%'
+        issue: '{{store.firstIssueNumber}}'
       - type: closeIssue
-        issue: '%store.firstIssueNumber%'
+        issue: '{{store.firstIssueNumber}}'
 
   - title: Edit the README
     description: Describe the purpose and benefits of your project.
@@ -69,28 +69,28 @@ steps:
     link: '{{ store.readmePrUrl }}'
     actions:
       - type: gate
-        left: '%store.readmePrNumber%'
+        left: '{{store.readmePrNumber}}'
         operator: ===
-        right: '%payload.pull_request.number%'
+        right: '{{payload.pull_request.number}}'
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'make a commit to `README.md` in [this pull request](%store.readmePrUrl%)'
+              expected: 'make a commit to `README.md` in [this pull request]({{ store.readmePrUrl }})'
       - type: getFileContents
         filename: README.md
         action_id: readme
       - type: gate
         left: '/DESCRIPTION PLACEHOLDER/'
         operator: '!test'
-        right: '%actions.readme%'
+        right: '{{actions.readme}}'
         else:
           type: respond
           with: 02a-readme-description.md
       - type: gate
         left: '/FEATURES PLACEHOLDER/'
         operator: '!test'
-        right: '%actions.readme%'
+        right: '{{actions.readme}}'
         else:
           type: respond
           with: 02b-readme-features.md
@@ -108,29 +108,29 @@ steps:
       - type: gate
         every: true
         gates:
-          - left: '%store.readmePrNumber%'
+          - left: '{{store.readmePrNumber}}'
             operator: ===
-            right: '%payload.pull_request.number%'
-          - left: '%payload.pull_request.merged%'
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request](%store.readmePrUrl%)'
+              expected: 'merge [this pull request]({{ store.readmePrUrl }})'
       - type: createPullRequest
         head: add-docs
         title: Add documentation
         body: 03-add-docs.md
         store:
-          docsPrUrl: '%result.data.html_url%'
-          docsPrNumber: '%result.data.number%'
+          docsPrUrl: '{{result.data.html_url}}'
+          docsPrNumber: '{{result.data.number}}'
         data:
-          docsFileUrl: '%store.repoUrl%/edit/add-docs/docs/getting-started.md'
+          docsFileUrl: '{{ store.repoUrl }}/edit/add-docs/docs/getting-started.md'
       - type: createPullRequestComment
         body: 03-docs-suggested.md
         file: docs/getting-started.md
         position: 38
-        pullRequest: '%store.docsPrNumber%'
+        pullRequest: '{{ store.docsPrNumber }}'
       - type: respond
         with: 02n-next.md
 
@@ -139,6 +139,15 @@ steps:
     event: pull_request.synchronize
     link: '{{ store.docsPrUrl }}'
     actions:
+      - type: gate
+        left: '{{store.docsPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `docs/getting-started.md` in [this pull request]({{ store.docsPrUrl }})'
       - type: getFileContents
         filename: docs/getting-started.md
         action_id: file
