@@ -268,6 +268,15 @@ steps:
     event: pull_request.synchronize
     link: '{{ store.contribPrlUrl }}'
     actions:
+      - type: gate
+        left: '{{store.contribPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `CONTRIBUTING.md` in [this pull request]({{ store.contribPrlUrl }})'
       - type: getFileContents
         filename: CONTRIBUTING.md
         action_id: file
@@ -284,10 +293,22 @@ steps:
   - title: Add custom labels to the project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request.
     event: pull_request.labeled
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.contribPrlUrl }}'
     actions:
+      - type: gate
+        left: '{{store.contribPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'apply a label to [this pull request]({{ store.contribPrlUrl }})'
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 06a-label-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.contribPrNumber }}/files#submit-review'
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide.
