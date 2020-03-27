@@ -208,9 +208,6 @@ steps:
               expected: 'open a pull request titled **Update issue templates** as described in [this issue]({{ store.templatesIssueUrl }})'
       - type: closeIssue
         issue: '{{ store.templatesIssueNumber }}'
-        store:
-          templatesPrUrl: '{{ payload.pull_request.html_url }}'
-          templatesPrNumber: '{{ payload.pull_request.number }}'
       - type: getTree
         action_id: tree
         recursive: true
@@ -222,8 +219,14 @@ steps:
         else:
           type: respond
           with: 04a-template-location.md
+        store:
+          templatesPrUrl: '{{ payload.pull_request.html_url }}'
+          templatesPrNumber: '{{ payload.pull_request.number }}'
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 04b-template-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.readmePrNumber }}/files#submit-review'
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
@@ -231,7 +234,17 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.templatesPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request]({{ store.templatesPrUrl }})'
       - type: createPullRequest
         head: add-contrib-guide
         title: Add a contributing guide
