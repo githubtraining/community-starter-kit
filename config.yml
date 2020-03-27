@@ -14,6 +14,18 @@ before:
       - 01a-add-description.md
     store:
       firstIssueNumber: '%result.data.number%'
+      repoUrl: '%payload.repository.html_url%'
+      repoFullName: '%payload.repository.full_name%'
+
+# Repo artifacts
+# ---
+#     repoUrl
+#     repoFullName
+# 1. (Issue) Preparing Mona's project for open source
+#     firstIssueNumber
+# 2. (PR) Create a README
+#     firstPrUrl
+#     firstPrNumber
 
 steps:
   - title: Add a repository description
@@ -22,11 +34,24 @@ steps:
     event: repository.edited
     actions:
       - type: createPullRequest
-        title: Add a repository description
+        title: Create a README
         body: 02-create-readme.md
         head: add-readme
         store:
           firstPrUrl: '%result.data.html_url%'
+          firstPrNumber: '%result.data.number%'
+        data:
+          readmeUrl: '%repoUrl%/edit/add-readme/README.md'
+      - type: createPullRequestComment
+        body: 02-description-suggestion.md
+        file: README.md
+        position: 5
+        pullRequest: '%store.firstPrNumber%'
+      - type: createPullRequestComment
+        body: 02-features-suggestion.md
+        file: README.md
+        position: 11
+        pullRequest: '%store.firstPrNumber%'
       - type: closeIssue
         issue: '%store.firstIssueNumber%'
       - type: respond

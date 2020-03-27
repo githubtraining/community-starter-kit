@@ -16,14 +16,16 @@ The `README.md` is the landing page for your project. It helps people understand
 
 ### Check it out
 
-Mona's `README.md` is missing some of the information above. Will you help Mona by replacing the placeholder text?
+Mona's `README.md` is missing some of the information above. Will you help Mona by replacing the placeholder text? I have suggested some changes below. Apply the suggested changes, or modify the file directly if you wish!
 
 ### :keyboard: Activity: Editing the README.md
 
-1. Access the **Files changed** tab in this pull request.
-2. Click the icon on the right of the file to edit the `README.md`.
-3. Find the two placeholder texts labeled **DESCRIPTION PLACEHOLDER** and **FEATURES PLACEHOLDER**. Replace them with some bulleted information that may be helpful to new users.
-4. After editing the `README.md` file, scroll down and click the **Commit changes** button.
+You can follow the manual steps below, or accept the [suggested changes](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) in the following comments.
+
+1. Edit [`README.md`]({{ readmeUrl }}) on this branch.
+1. Find the two placeholder texts labeled **DESCRIPTION PLACEHOLDER** and **FEATURES PLACEHOLDER**.
+1. Replace each placeholder with some bulleted information that may be helpful to new users.
+1. After editing the `README.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my response.</h3>
+<h3 align="center">I'll respond when I detect a commit on this branch.</h3>
