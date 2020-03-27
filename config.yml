@@ -20,7 +20,6 @@ before:
   - type: updateBranchProtection
 
 # Repo artifacts
-# ---
 #     repoUrl
 #     repoFullName
 # 1. (Issue) Preparing Mona's project for open source
@@ -31,6 +30,9 @@ before:
 # 3. (PR) Add documentation
 #     docsPrUrl
 #     docsPrNumber
+# 4. (Issue) Add an issue template
+#     templatesIssueUrl
+#     templatesIssueNumber
 
 steps:
   - title: Add a repository description
@@ -181,20 +183,19 @@ steps:
             with: e-pr.md
             data:
               expected: 'merge [this pull request]({{ store.docsPrUrl }})'
-      - type: createPullRequest
-        head: add-issue-template
+      - type: createIssue
         title: Add an issue template
         body: 04-helping-contributors.md
-        action_id: pr
+        store:
+          templatesIssueUrl: '{{ result.data.html_url }}'
+          templatesIssueNumber: '{{ result.data.number }}'
       - type: respond
         with: 03n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add an issue template
     description: Use issue templates to gather useful information from contributors.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.templatesIssueUrl }}'
     actions:
       - type: getTree
         action_id: tree
