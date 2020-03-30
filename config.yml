@@ -418,6 +418,13 @@ steps:
         store:
           cocPrUrl: '{{ result.data.html_url }}'
           cocPrNumber: '{{ result.data.number }}'
+        data:
+          cocFileUrl: '{{ store.repoUrl }}/edit/add-code/code-of-conduct.md'
+      - type: createPullRequestComment
+        body: 08-coc.md
+        file: code-of-conduct.md
+        position: 1
+        pullRequest: '{{store.cocPrNumber }}'      
       - type: respond
         with: 07n-next.md
 
