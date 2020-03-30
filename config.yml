@@ -390,22 +390,31 @@ steps:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.licensePrNumber }})'
+              expected: 'merge [this pull request]({{ store.licensePrUrl }})'
       - type: createPullRequest
         head: add-code
         title: Add a Code of Conduct
         body: 08-code-of-conduct.md
-        action_id: pr
+        store:
+          cocPrUrl: '{{ result.data.html_url }}'
+          cocPrNumber: '{{ result.data.number }}'
       - type: respond
         with: 07n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add the Code of Conduct
     description: Add a Code of Conduct to set expectations for behavior in your project.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
+      - type: gate
+        left: '{{store.cocPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `code-of-conduct.md` in [this pull request]({{ store.cocPrUrl }})'
       - type: getFileContents
         filename: code-of-conduct.md
         action_id: file
@@ -425,20 +434,39 @@ steps:
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.cocPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request]({{ store.cocPrUrl }})'
       - type: createIssue
         title: Make it visible
         body: 09-make-it-visible.md
-        action_id: issue
+        store:
+          visibilityIssueUrl: '{{ result.data.html_url }}'
+          visibilityIssueNumber: '{{ result.data.number }}'
       - type: respond
         with: 08n-next.md
-        data:
-          issueURL: '%actions.issue.data.html_url%'
 
   - title: Help users find the project
     description: Add repository topics to help GitHub categorize and recommend your project.
     event: issues.closed
     link: '{{ repoUrl }}/issues'
     actions:
+      - type: gate
+        left: '{{store.visibilityIssueNumber}}'
+        operator: ===
+        right: '{{payload.issue.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'close [this issue]({{ store.visibilityIssueUrl }})'
       - type: respond
         with: 10-finish.md
