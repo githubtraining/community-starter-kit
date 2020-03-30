@@ -240,7 +240,7 @@ steps:
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
-    event: pull_request_review.submitted
+    event: pull_request.closed
     link: '{{ store.templatesPrUrl }}'
     actions:
       - type: gate
@@ -249,17 +249,12 @@ steps:
           - left: '{{store.templatesPrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.review.state}}'
-            operator: ===
-            right: approved
+          - left: '{{payload.pull_request.merged}}'
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'approve [this pull request]({{ store.templatesPrUrl }})'
-      - type: mergePullRequest
-        pullRequest: '{{ payload.pull_request.number }}'
-        required: false
+              expected: 'merge [this pull request]({{ store.templatesPrUrl }})'
       - type: createPullRequest
         head: add-contrib-guide
         title: Add a contributing guide
