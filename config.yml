@@ -104,7 +104,7 @@ steps:
 
   - title: Merge the README
     description: Merge the pull request to add the README.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ store.readmePrUrl }}'
     actions:
       - type: gate
@@ -113,12 +113,17 @@ steps:
           - left: '{{store.readmePrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.readmePrUrl }})'
+              expected: 'approve [this pull request]({{ store.readmePrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-docs
         title: Add documentation
@@ -168,7 +173,7 @@ steps:
 
   - title: Merge the user documentation
     description: Merge the pull request to add the user documentation.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ store.docsPrUrl }}'
     actions:
       - type: gate
@@ -177,12 +182,17 @@ steps:
           - left: '{{store.docsPrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.docsPrUrl }})'
+              expected: 'approve [this pull request]({{ store.docsPrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createIssue
         title: Add an issue template
         body: 04-helping-contributors.md
@@ -230,7 +240,7 @@ steps:
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ store.templatesPrUrl }}'
     actions:
       - type: gate
@@ -239,12 +249,17 @@ steps:
           - left: '{{store.templatesPrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.templatesPrUrl }})'
+              expected: 'approve [this pull request]({{ store.templatesPrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-contrib-guide
         title: Add a contributing guide
@@ -312,7 +327,7 @@ steps:
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ store.contribPrlUrl }}'
     actions:
       - type: gate
@@ -321,12 +336,17 @@ steps:
           - left: '{{store.contribPrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.contribPrlUrl }})'
+              expected: 'approve [this pull request]({{ store.contribPrlUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-license
         title: Add a license
@@ -376,7 +396,7 @@ steps:
 
   - title: Merge the license
     description: Merge the pull request to add your license.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
@@ -385,12 +405,17 @@ steps:
           - left: '{{store.licensePrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.licensePrUrl }})'
+              expected: 'approve [this pull request]({{ store.licensePrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-code
         title: Add a Code of Conduct
@@ -430,7 +455,7 @@ steps:
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
@@ -439,12 +464,17 @@ steps:
           - left: '{{store.cocPrNumber}}'
             operator: ===
             right: '{{payload.pull_request.number}}'
-          - left: '{{payload.pull_request.merged}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
         else:
           - type: respond
             with: e-pr.md
             data:
-              expected: 'merge [this pull request]({{ store.cocPrUrl }})'
+              expected: 'approve [this pull request]({{ store.cocPrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createIssue
         title: Make it visible
         body: 09-make-it-visible.md
