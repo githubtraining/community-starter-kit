@@ -12,141 +12,281 @@ before:
     body: 01-welcome-story.md
     comments:
       - 01a-add-description.md
+    store:
+      firstIssueNumber: '{{result.data.number}}'
+      firstIssueUrl: '{{result.data.html_url}}'
+      repoUrl: '{{payload.repository.html_url}}'
+      repoFullName: '{{payload.repository.full_name}}'
+  - type: updateBranchProtection
+
+# Repo artifacts
+#     repoUrl
+#     repoFullName
+# 1. (Issue) Preparing Mona's project for open source
+#     firstIssueNumber
+# 2. (PR) Create a README
+#     readmePrUrl
+#     readmePrNumber
+# 3. (PR) Add documentation
+#     docsPrUrl
+#     docsPrNumber
+# 4. (Issue) Add an issue template
+#     templatesIssueUrl
+#     templatesIssueNumber
+
 steps:
   - title: Add a repository description
     description: Welcome users to the repository with a descriptive README
-    link: '{{ repoUrl }}/issues/1'
-    event: issues.closed
+    link: '{{ store.firstIssueUrl }}'
+    event: repository.edited
     actions:
       - type: createPullRequest
-        title: Add a repository description
+        title: Create a README
         body: 02-create-readme.md
         head: add-readme
-        action_id: pr
+        store:
+          readmePrUrl: '{{ result.data.html_url }}'
+          readmePrNumber: '{{ result.data.number }}'
+        data:
+          readmeUrl: '{{ store.repoUrl }}/edit/add-readme/README.md'
+      - type: createPullRequestComment
+        body: 02-description-suggestion.md
+        file: README.md
+        position: 5
+        pullRequest: '{{store.readmePrNumber}}'
+      - type: createPullRequestComment
+        body: 02-features-suggestion.md
+        file: README.md
+        position: 11
+        pullRequest: '{{store.readmePrNumber}}'
       - type: respond
         with: 01n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
+        issue: '{{store.firstIssueNumber}}'
+      - type: closeIssue
+        issue: '{{store.firstIssueNumber}}'
 
   - title: Edit the README
     description: Describe the purpose and benefits of your project.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.readmePrUrl }}'
     actions:
+      - type: gate
+        left: '{{store.readmePrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `README.md` in [this pull request]({{ store.readmePrUrl }})'
       - type: getFileContents
         filename: README.md
         action_id: readme
       - type: gate
         left: '/DESCRIPTION PLACEHOLDER/'
         operator: '!test'
-        right: '%actions.readme%'
+        right: '{{actions.readme}}'
         else:
           type: respond
           with: 02a-readme-description.md
       - type: gate
         left: '/FEATURES PLACEHOLDER/'
         operator: '!test'
-        right: '%actions.readme%'
+        right: '{{actions.readme}}'
         else:
           type: respond
           with: 02b-readme-features.md
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 02c-readme-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.readmePrNumber }}/files#submit-review'
 
   - title: Merge the README
     description: Merge the pull request to add the README.
-    event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    event: pull_request_review.submitted
+    link: '{{ store.readmePrUrl }}'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.readmePrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'approve [this pull request]({{ store.readmePrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-docs
         title: Add documentation
         body: 03-add-docs.md
-        action_id: pr
+        store:
+          docsPrUrl: '{{result.data.html_url}}'
+          docsPrNumber: '{{result.data.number}}'
+        data:
+          docsFileUrl: '{{ store.repoUrl }}/edit/add-docs/docs/getting-started.md'
+      - type: createPullRequestComment
+        body: 03-docs-suggested.md
+        file: docs/getting-started.md
+        position: 38
+        pullRequest: '{{ store.docsPrNumber }}'
       - type: respond
         with: 02n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Create user documentation
     description: Support your users with great documentation.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.docsPrUrl }}'
     actions:
+      - type: gate
+        left: '{{store.docsPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `docs/getting-started.md` in [this pull request]({{ store.docsPrUrl }})'
       - type: getFileContents
         filename: docs/getting-started.md
         action_id: file
       - type: gate
         left: '/CONFIGS PLACEHOLDER/'
         operator: '!test'
-        right: '%actions.file%'
+        right: '{{actions.file}}'
         else:
           type: respond
           with: 03a-docs-configs.md
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 03b-docs-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.docsPrNumber }}/files#submit-review'
 
   - title: Merge the user documentation
     description: Merge the pull request to add the user documentation.
-    event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    event: pull_request_review.submitted
+    link: '{{ store.docsPrUrl }}'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
-      - type: createPullRequest
-        head: add-issue-template
+        every: true
+        gates:
+          - left: '{{store.docsPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'approve [this pull request]({{ store.docsPrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
+      - type: createIssue
         title: Add an issue template
         body: 04-helping-contributors.md
-        action_id: pr
+        store:
+          templatesIssueUrl: '{{ result.data.html_url }}'
+          templatesIssueNumber: '{{ result.data.number }}'
       - type: respond
         with: 03n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add an issue template
     description: Use issue templates to gather useful information from contributors.
-    event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    event: 
+      - pull_request.opened
+      - pull_request.synchronize
+    link: '{{ store.templatesIssueUrl }}'
     actions:
+      - type: gate
+        left: '{{payload.pull_request.title}}'
+        operator: ===
+        right: Update issue templates
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'open a pull request titled **Update issue templates** as described in [this issue]({{ store.templatesIssueUrl }})'
       - type: getTree
         action_id: tree
         recursive: true
-        sha: '%payload.pull_request.head.sha%'
+        sha: '{{payload.pull_request.head.sha}}'
       - type: gate
-        left: '%actions.tree.data.tree%'
+        left: '{{actions.tree.data.tree}}'
         operator: includes
-        right: path:/^.github/ISSUE_TEMPLATE/bug-report.md$/
+        right: path:/^.github/ISSUE_TEMPLATE/bug_report.md$/
         else:
           type: respond
           with: 04a-template-location.md
-      - type: respond
-        with: 04b-template-done.md
+      - type: closeIssue
+        issue: '{{ store.templatesIssueNumber }}'
+        store:
+          templatesPrUrl: '{{ payload.pull_request.html_url }}'
+          templatesPrNumber: '{{ payload.pull_request.number }}'
+      - type: createReview
+        body: 04b-template-done.md
+        event: APPROVE
 
   - title: Merge the issue template
     description: Merge the pull request to add your issue template.
     event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.templatesPrUrl }}'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.templatesPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.pull_request.merged}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'merge [this pull request]({{ store.templatesPrUrl }})'
       - type: createPullRequest
         head: add-contrib-guide
         title: Add a contributing guide
         body: 05-contributing-guide.md
-        action_id: pr
-      - type: updateBranchProtection
+        data:
+          contribFileUrl: '{{ store.repoUrl }}/edit/add-contrib-guide/CONTRIBUTING.md'
+        store:
+          contribPrUrl: '{{ result.data.html_url }}'
+          contribPrNumber: '{{ result.data.number }}'
+          headSha: '{{ result.data.head.sha }}'
+      - type: createPullRequestComment
+        body: 05-contributing-suggestion.md
+        file: CONTRIBUTING.md
+        position: 13
+        pullRequest: '{{store.contribPrNumber}}'
       - type: respond
         with: 04n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add a CONTRIBUTING guide
     description: A CONTRIBUTING guide is used to tell others how they can help.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.contribPrlUrl }}'
     actions:
+      - type: gate
+        left: '{{store.contribPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `CONTRIBUTING.md` in [this pull request]({{ store.contribPrlUrl }})'
       - type: getFileContents
         filename: CONTRIBUTING.md
         action_id: file
@@ -163,69 +303,145 @@ steps:
   - title: Add custom labels to the project
     description: Create the labels described in the CONTRIBUTING guide and add them to this pull request.
     event: pull_request.labeled
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.contribPrlUrl }}'
     actions:
+      - type: gate
+        left: '{{store.contribPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'apply a label to [this pull request]({{ store.contribPrlUrl }})'
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 06a-label-done.md
-      - type: removeBranchProtection
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.contribPrNumber }}/files#submit-review'
 
   - title: Merge the CONTRIBUTING guide
     description: Merge the pull request to add your contributing guide.
-    event: pull_request.closed
-    link: '{{ repoUrl }}/pulls'
+    event: pull_request_review.submitted
+    link: '{{ store.contribPrlUrl }}'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.contribPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'approve [this pull request]({{ store.contribPrlUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-license
         title: Add a license
         body: 07-add-license.md
-        action_id: pr
+        data:
+          licenseFileUrl: '{{ store.repoUrl }}/edit/add-license/LICENSE.md'
+        store:
+          licensePrUrl: '{{ result.data.html_url }}'
+          licensePrNumber: '{{ result.data.number }}'
+      - type: createPullRequestComment
+        body: 07-license-suggestion.md
+        file: LICENSE.md
+        position: 3
+        pullRequest: '{{store.licensePrNumber}}'
       - type: respond
         with: 06n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add the license
     description: Add a license to your open source project.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pulls'
+    link: '{{ store.licensePrUrl }}'
     actions:
+      - type: gate
+        left: '{{store.licensePrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `LICENSE.md` in [this pull request]({{ store.licensePrNumber }})'
       - type: getFileContents
         filename: LICENSE.md
         action_id: file
       - type: gate
         left: '/\[year\]|\[fullname\]/'
         operator: '!test'
-        right: '%actions.file%'
+        right: '{{actions.file}}'
         else:
           type: respond
           with: 07a-replace-placeholders.md
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 07b-license-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.licensePrNumber }}/files#submit-review'
 
   - title: Merge the license
     description: Merge the pull request to add your license.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.licensePrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'approve [this pull request]({{ store.licensePrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createPullRequest
         head: add-code
         title: Add a Code of Conduct
         body: 08-code-of-conduct.md
-        action_id: pr
+        store:
+          cocPrUrl: '{{ result.data.html_url }}'
+          cocPrNumber: '{{ result.data.number }}'
+        data:
+          cocFileUrl: '{{ store.repoUrl }}/edit/add-code/code-of-conduct.md'
+      - type: createPullRequestComment
+        body: 08-coc.md
+        file: code-of-conduct.md
+        position: 1
+        pullRequest: '{{store.cocPrNumber }}'      
       - type: respond
         with: 07n-next.md
-        data:
-          prURL: '%actions.pr.data.html_url%'
 
   - title: Add the Code of Conduct
     description: Add a Code of Conduct to set expectations for behavior in your project.
     event: pull_request.synchronize
     link: '{{ repoUrl }}/pulls'
     actions:
+      - type: gate
+        left: '{{store.cocPrNumber}}'
+        operator: ===
+        right: '{{payload.pull_request.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'make a commit to `code-of-conduct.md` in [this pull request]({{ store.cocPrUrl }})'
       - type: getFileContents
         filename: code-of-conduct.md
         action_id: file
@@ -236,29 +452,58 @@ steps:
         else:
           type: respond
           with: 08a-replace-placeholders.md
+          data:
+            cocFileUrl: '{{ store.repoUrl }}/edit/add-code/code-of-conduct.md'
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 08b-code-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.cocPrNumber }}/files#submit-review'
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct.
-    event: pull_request.closed
+    event: pull_request_review.submitted
     link: '{{ repoUrl }}/pulls'
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        every: true
+        gates:
+          - left: '{{store.cocPrNumber}}'
+            operator: ===
+            right: '{{payload.pull_request.number}}'
+          - left: '{{payload.review.state}}'
+            operator: ===
+            right: approved
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'approve [this pull request]({{ store.cocPrUrl }})'
+      - type: mergePullRequest
+        pullRequest: '{{ payload.pull_request.number }}'
+        required: false
       - type: createIssue
         title: Make it visible
         body: 09-make-it-visible.md
-        action_id: issue
+        store:
+          visibilityIssueUrl: '{{ result.data.html_url }}'
+          visibilityIssueNumber: '{{ result.data.number }}'
       - type: respond
         with: 08n-next.md
-        data:
-          issueURL: '%actions.issue.data.html_url%'
 
   - title: Help users find the project
     description: Add repository topics to help GitHub categorize and recommend your project.
     event: issues.closed
     link: '{{ repoUrl }}/issues'
     actions:
+      - type: gate
+        left: '{{store.visibilityIssueNumber}}'
+        operator: ===
+        right: '{{payload.issue.number}}'
+        else:
+          - type: respond
+            with: e-pr.md
+            data:
+              expected: 'close [this issue]({{ store.visibilityIssueUrl }})'
       - type: respond
         with: 10-finish.md

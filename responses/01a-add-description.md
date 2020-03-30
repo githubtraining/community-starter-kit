@@ -8,12 +8,13 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 
 ### :keyboard: Activity: Adding a repository description
 
-1. Access the [**Code**]({{ repoUrl }}) tab of your project.
+![A GIF of this issue, scrolling up to the top of the page, clicking on the Code tab, clicking on Edit under the repository navigation tabs, entering a description and URL, and clicking Save](https://user-images.githubusercontent.com/16547949/77772617-d306f600-701e-11ea-89b7-caf8c2d3f1b2.gif)
+
+1. Click on the [**Code**]({{ repoUrl }}) tab of your project.
 2. Click the **Edit** button located on the right side of the screen (above the green **Clone or download** button).
 3. Enter a description for your project in the **Description** field.
 4. (Optional) If you have a website related to your project you can add it in the **Website** field.
 5. Click the **Save** button.
-6. When you are finished, go ahead and **close this issue**.
 
 {% if GHE_HOST %}
 
@@ -30,7 +31,6 @@ Mona is working on a first draft of the `README.md`. Can you help by adding a de
 {% endif %}
 
 <hr>
-<h3 align="center">Watch for my response below.</h3>
+<h3 align="center">I will respond in this issue when you've edited your repository description.</h3>
 
-> :robot: I'm waiting for you to close this issue
 > :robot: Sometimes I respond too fast for the page to update! If you perform an expected action and don't see a response from me, wait a few seconds and refresh the page for your next steps.

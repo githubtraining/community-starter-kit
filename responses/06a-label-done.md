@@ -4,11 +4,13 @@ Nice work @{{ user.username }}! You successfully added labels to this project. L
 
 Go ahead and merge the `CONTRIBUTING.md` guide.
 
-### :keyboard: Activity: Merge the pull request
+### :keyboard: Activity: Approve the pull request
 
-1. Click **Merge pull request**.
-1. Click **Confirm merge**.
-1. Click **Delete branch**.
+1. Clicking on [this quicklink]({{ approveLink }})
+1. Select **Approve**
+1. Click **Submit review**.
+
+You can also approve by clicking on **Files changed**, clicking on **Review changes**, selecting **Approve** and then **Submit review**.
 
 <hr>
-<h3 align="center">Watch below for my response.</h3>
+<h3 align="center">I'll respond when you've approved this pull request.</h3>

@@ -6,11 +6,11 @@ Can you help her grab the markdown version from [the contributor covenant websit
 
 ### :keyboard: Activity: Add a Code of Conduct
 
-1. Copy the markdown text from the latest version on [the contributor covenant website](https://www.contributor-covenant.org/).
-1. Access the **Files changed** tab in this pull request.
-2. Click the icon to the right of the file to edit the `code-of-conduct.md` file.
-3. Paste the markdown formatted text into the file, don't forget there is a placeholder for an email address (**[INSERT EMAIL ADDRESS]**).
+You can follow the manual steps below, or accept the [suggested change](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) in the following comment.
+
+1. Edit [`code-of-conduct.md`]({{ cocFileUrl }}) on this branch, or manually edit it in the **Files Changed** tab.
+1. Replace the file's contents with the markdown text from the latest version on [the contributor covenant website](https://www.contributor-covenant.org/). Feel free to also replace the placeholder `[INSERT CONTACT METHOD]` with a contact method of your choosing.
 4. Scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my next comment.</h3>
+<h3 align="center">I'll respond when I detect a commit on this branch.</h3>

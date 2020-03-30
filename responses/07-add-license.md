@@ -10,10 +10,12 @@ Mona has already grabbed the license, can you please make sure the project detai
 
 ### :keyboard: Activity: Adding a License
 
-1. Access the **Files changed** tab in this pull request.
-1. Click the icon to the right of the file to edit the `LICENSE.md` file.
-1. Replace the `[year]` and `[fullname]` placeholder text within the license and edit as needed.
+You can follow the manual steps below, or accept the [suggested change](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) in the following comment.
+
+1. Edit [`LICENSE.md`]({{ licenseFileUrl }}) on this branch, or manually edit it in the **Files Changed** tab.
+1. Find the placeholders for `[year]` and `[fullname]`.
+1. Replace each placeholder with a year and name of your choosing.
 1. After editing the `LICENSE.md` file, scroll down and click the **Commit changes** button.
 
 <hr>
-<h3 align="center">Watch below for my response.</h3>
+<h3 align="center">I'll respond when I detect a commit on this branch.</h3>
