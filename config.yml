@@ -452,8 +452,13 @@ steps:
         else:
           type: respond
           with: 08a-replace-placeholders.md
+          data:
+            cocFileUrl: '{{ store.repoUrl }}/edit/add-code/code-of-conduct.md'
+      - type: requestReviewFromRegistrant
       - type: respond
         with: 08b-code-done.md
+        data:
+          approveLink: '{{ store.repoUrl }}/pull/{{ store.cocPrNumber }}/files#submit-review'
 
   - title: Merge the Code of Conduct
     description: Merge the pull request to add your Code of Conduct.
